@@ -2,3 +2,4 @@ target/
 dbt_packages/
 logs/
 dbt_modules/
+dbt_internal_packages/

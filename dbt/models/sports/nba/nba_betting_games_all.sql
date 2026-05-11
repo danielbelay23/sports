@@ -1,0 +1,41 @@
+{{
+    config(
+        materialized='view',
+        schema='nba'
+    )
+}}
+
+select
+    `game_id`,
+    `game_date`,
+    `matchup`,
+    `team_id`,
+    `is_home`,
+    `wl`,
+    `w`,
+    `l`,
+    `w_pct`,
+    `min`,
+    `fgm`,
+    `fga`,
+    `fg_pct`,
+    `fg3m`,
+    `fg3a`,
+    `fg3_pct`,
+    `ftm`,
+    `fta`,
+    `ft_pct`,
+    `oreb`,
+    `dreb`,
+    `reb`,
+    `ast`,
+    `stl`,
+    `blk`,
+    `tov`,
+    `pf`,
+    `pts`,
+    `a_team_id`,
+    `season_year`,
+    `season_type`,
+    `season`
+from {{ ref('stg_nba_games_all') }}
