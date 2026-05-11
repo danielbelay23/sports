@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: nba_odds_raw
+    database: belayground-467323
+    schema: nba_odds_raw
+    tables:
+      - name: nba_betting_money_line
+      - name: nba_betting_spread
+      - name: nba_betting_totals
+      - name: nba_games_all
+      - name: nba_players_all
+      - name: nba_players_game_stats
+      - name: nba_teams_all
