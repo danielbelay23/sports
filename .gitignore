@@ -1,0 +1,24 @@
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# gcp service account keys
+*.json
+.gcp/
+credentials/
+secrets/
+
+# dbt generated artifacts
+dbt/target/
+dbt/logs/
+dbt/dbt_packages/
+logs/
+
+# raw / large data
+ELT/kaggle data/
+*.parquet
+*.csv
+
+# macos
+.DS_Store

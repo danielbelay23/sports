@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: playoff_games
+    description: ""
+    columns:
+      - name: id
+        description: ""
+        tests:
+          - unique
+          - not_null

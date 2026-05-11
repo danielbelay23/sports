@@ -1,0 +1,11 @@
+{
+	"select": {
+		"scope": "md,markdown",
+		"prefix": ["docs"],
+		"body": [
+			"{% docs $1 %}",
+			"$2",
+			"{% enddocs %}"
+		]
+	}
+}

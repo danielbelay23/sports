@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: nba_raw
+    database: belayground-467323
+    schema: nba_raw
+    tables:
+      - name: games
+      - name: league_schedule_2024_25
+      - name: league_schedule_2025_26
+      - name: players
+      - name: player_statistics
+      - name: player_statistics_extended
+      - name: team_histories
+      - name: team_statistics
+      - name: team_statistics_extended
+      - name: play_by_play

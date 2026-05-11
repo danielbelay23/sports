@@ -1,0 +1,89 @@
+{
+	"model config": {
+		"scope": "yaml",
+		"prefix": ["config"],
+		"body": [
+			"version: 2",
+			"",
+			"models:",
+			"  - name: ${1:model_name}",
+			"    description: ${2:model_description}",
+			"    docs:",
+			"      show: ${3|true,false|}",
+			"    tests:",
+			"      - ",
+			"    columns:",
+			"      - name: ${4:column_name}",
+			"        description: ${5:column_description}",
+			"        tests:",
+			"          - ",
+			"        tags: <delete this line if not needed>"
+
+		],
+		"description": "Template for adding model documentation and tests",
+	},
+	"unique_combination_of_columns":{
+		"scope": "yaml",
+		"prefix": ["tests","unique_combination_of_columns"],
+		"body": [
+			"dbt_utils.unique_combination_of_columns:",
+			"    combination_of_columns:",
+			"      - $first_column_name",
+			"      - $second_column_name"],
+		"description": "Only used at the model level. Do not use at the column level",
+	},
+	"unique":{
+		"scope": "yaml",
+		"prefix": ["tests","unique"],
+		"body": ["unique"]
+	},
+	"not_null":{
+		"scope": "yaml",
+		"prefix": ["tests","not_null"],
+		"body": ["not_null"]
+	},
+	"accepted_values":{
+		"scope": "yaml",
+		"prefix": ["tests","accepted_values"],
+		"body": [
+			"accepted_values:",
+			"    values: ['$1','$2']"
+		]
+	},
+	"relationships":{
+		"scope": "yaml",
+		"prefix": ["tests","relationships"],
+		"body": [
+			"relationships:",
+			"    to: ref('${1:model name}')",
+			"    field: ${2:field name}"
+		]
+	},
+	"name_and_desc": {
+		"scope": "yaml",
+		"prefix": ["name"],
+		"body": [
+			"- name: $1",
+			"  description: $2",
+		]
+	},
+	"description": {
+		"scope": "yaml",
+		"prefix": ["description", "desc"],
+		"body": [
+			"description: $1"
+		]
+	},
+	"needs_description": {
+		"scope": "yaml",
+		"prefix": ["needs_description"],
+		"body": [
+			"tag: needs_description"
+		]
+	},
+	"docs": { 
+		"scope": "yaml",
+		"prefix": "docs",
+		"body": "'{{ doc(\"$1\") }}'"
+	}
+}

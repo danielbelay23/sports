@@ -1,0 +1,92 @@
+{
+	"tag": {
+		"scope": "sql",
+		"prefix": ["tag"],
+		"body": [
+			"{{",
+			"    config(",
+			"        tags=['${1:tag_name}']",
+			"    )",
+			"}}",
+			""
+		]
+	},
+	"bool": {
+		"scope": "sql",
+		"prefix": ["bool"],
+		"body": [
+			"cast(${1:column} as bool) as ${1:column}"
+		]
+	},
+	"withfinal": {
+		"scope": "sql",
+		"prefix": ["withfinal"],
+		"body": [
+			"with final as (",
+			"    ${1:query}",
+			")",
+			"",
+			"select",
+			"    *",
+			"",
+			"from final",
+			""
+		]
+	},
+	"select": {
+		"scope": "sql",
+		"prefix": ["sel","select"],
+		"body": [
+			"select",
+			"    *",
+			"",
+			"from {{ ${1|source(''\\,''),ref('')|} }}",
+	]
+	},
+	"config": {
+		"scope": "sql",
+		"prefix": ["con","config"],
+		"body": [
+			"{{",
+			"    config(",
+			"        $0",
+			"    )",
+			"}}"
+		]
+	},
+	"materialized": {
+		"scope": "sql",
+		"prefix": ["materialized"],
+		"body": [
+			"materialized='${1|table,view,incremental|}'",
+		]
+	},
+	"partition_by": {
+		"scope": "sql",
+		"prefix": ["partition_by"],
+		"body": [
+			"partition_by={",
+			"  \"field\": \"${1:field_name}\",",
+			"  \"data_type\": \"${2|timestamp,date,datetime,int64|}\",",
+			"  \"granularity\": \"${3|hour,day,month,year|}\",",
+			"",
+			"  # Only required if data_type is \"int64\"",
+			"  \"range\": {",
+			"    \"start\": ${4:start_int},",
+			"    \"end\": ${5:end_int},",
+			"    \"interval\": ${6:interval_int}",
+			"  }",
+		  "},",
+		  "require_partition_filter=${7|false,true|}"
+		]
+	},
+	"if_incremental": {
+		"scope": "sql",
+		"prefix": ["incremental","if incremental"],
+		"body": [
+			"{% if is_incremental() %}",
+			"    $0",
+			"{% endif %}"
+		]
+	}
+}
