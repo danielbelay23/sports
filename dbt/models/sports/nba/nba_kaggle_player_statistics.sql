@@ -16,9 +16,15 @@ select
     `opponentteamCity` as opponent_team_city,
     `opponentteamName` as opponent_team_name,
     `gameType` as game_type,
-    `gameLabel` as game_label,
+    case
+        when `gameLabel` is null then null
+        else replace(`gameLabel`, '- ', '')
+    end as game_label,
+    cast(case
+        when `seriesGameNumber` like "%1%" then "1"
+        else `seriesGameNumber` end as float64
+    ) as series_game_number,
     `gameSubLabel` as game_sub_label,
-    `seriesGameNumber` as series_game_number,
     `win` as win,
     `home` as home,
     `numMinutes` as num_minutes,

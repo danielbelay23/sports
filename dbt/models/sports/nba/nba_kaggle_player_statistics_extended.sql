@@ -12,9 +12,17 @@ select
     `gameId` as game_id,
     `gameDateTimeEst` as game_datetime_est,
     `gameType` as game_type,
-    `gameLabel` as game_label,
+
+    case
+        when `gameLabel` is null then null
+        else replace(`gameLabel`, '- ', '')
+    end as game_label,
+    cast(case
+        when `seriesGameNumber` like "%1%" then "1"
+        else `seriesGameNumber` end as float64
+    ) as series_game_number,
+
     `gameSubLabel` as game_sub_label,
-    `seriesGameNumber` as series_game_number,
     `win` as win,
     `home` as home,
     `playerteamId` as player_team_id,

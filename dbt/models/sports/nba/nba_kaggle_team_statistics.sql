@@ -55,9 +55,15 @@ select
     `seasonLosses` as season_losses,
     `coachId` as coach_id,
     `gameType` as game_type,
-    `gameLabel` as game_label,
+    case
+        when `gameLabel` is null then null
+        else replace(`gameLabel`, '- ', '')
+    end as game_label,
     `gameSubLabel` as game_sub_label,
-    `seriesGameNumber` as series_game_number,
+    cast(case
+        when `seriesGameNumber` like "%1%" then "1"
+        else `seriesGameNumber` end as float64
+    ) as series_game_number,
     `seed` as seed,
     `reboundsTeam` as rebounds_team,
     `turnoversTeam` as turnovers_team,
