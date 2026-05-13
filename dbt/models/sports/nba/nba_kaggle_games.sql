@@ -19,9 +19,15 @@ select
     `winner` as winner,
     `gameType` as game_type,
     `gameSubtype` as game_subtype,
-    `gameLabel` as game_label,
+    case
+        when `gameLabel` is null then null
+        else replace(`gameLabel`, '- ', '')
+    end as game_label,
+    cast(case
+        when `seriesGameNumber` like "%1%" then "1"
+        else `seriesGameNumber` end as float64
+    ) as series_game_number,
     `gameSubLabel` as game_sub_label,
-    `seriesGameNumber` as series_game_number,
     `attendance` as attendance,
     `arenaId` as arena_id,
     `arenaName` as arena_name,
