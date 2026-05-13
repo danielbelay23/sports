@@ -11,6 +11,9 @@ select
     `personId` as person_id,
     `gameId` as game_id,
     `gameDateTimeEst` as game_datetime_est,
+    regexp_replace(
+        lower(concat(extract(year from date(`gameDateTimeEst`)), `gameLabel`)), r'[^a-z0-9]', ''
+    ) as series_id,
     `gameType` as game_type,
 
     case

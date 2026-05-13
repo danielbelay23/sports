@@ -19,6 +19,9 @@ select
     `winner` as winner,
     `gameType` as game_type,
     `gameSubtype` as game_subtype,
+    regexp_replace(
+        lower(concat(extract(year from date(`gameDateTimeEst`)), `gameLabel`)), r'[^a-z0-9]', ''
+    ) as series_id,
     case
         when `gameLabel` is null then null
         else replace(`gameLabel`, '- ', '')
