@@ -12,7 +12,7 @@ tab_space_size = 4
 spacing_before = touch
 line_position = trailing
 
-[sqlfluff:rules:capitalisation.keywords] 
+[sqlfluff:rules:capitalisation.keywords]
 capitalisation_policy = lower
 
 [sqlfluff:rules:aliasing.table]
@@ -33,5 +33,5 @@ capitalisation_policy = lower
 [sqlfluff:rules:capitalisation.literals]
 capitalisation_policy = lower
 
-[sqlfluff:rules:ambiguous.column_references]  # use number in group by and order by
+[sqlfluff:rules:ambiguous.column_references]
 group_by_and_order_by_style = implicit
