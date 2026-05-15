@@ -15,8 +15,8 @@ select
     end as game_label,
     `gameSubLabel` as game_sub_label,
     cast(case
-        when `seriesGameNumber` like "%1%" then "1"
-        else `seriesGameNumber` end as float64
+        when cast(`seriesGameNumber` as string) like '%1%' then '1'
+        else cast(`seriesGameNumber` as string) end as float64
     ) as series_game_number,
     `teamId` as team_id,
     `teamCity` as team_city,

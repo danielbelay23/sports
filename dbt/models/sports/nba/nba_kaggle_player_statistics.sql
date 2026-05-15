@@ -16,6 +16,9 @@ select
     `opponentteamCity` as opponent_team_city,
     `opponentteamName` as opponent_team_name,
     `gameType` as game_type,
+    regexp_replace(
+        lower(concat(extract(year from date(`gameDateTimeEst`)), `gameLabel`)), r'[^a-z0-9]', ''
+    ) as series_id,
     case
         when `gameLabel` is null then null
         else replace(`gameLabel`, '- ', '')
