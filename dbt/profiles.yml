@@ -1,0 +1,19 @@
+sports:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: belayground-467323
+      dataset: nba_staging
+      threads: 4
+      timeout_seconds: 300
+      location: US
+    prod:
+      type: bigquery
+      method: oauth
+      project: belayground-467323
+      dataset: nba
+      threads: 4
+      timeout_seconds: 300
+      location: US

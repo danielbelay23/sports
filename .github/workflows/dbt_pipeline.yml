@@ -1,0 +1,36 @@
+name: dbt Production Pipeline
+
+on:
+  # 1. Runs automatically when a Pull Request is merged into the main branch
+  push:
+    branches:
+      - main
+
+  # 2. Runs on a schedule (e.g., every day at 8:00 AM UTC)
+  schedule:
+    - cron: "0 8 * * *"
+
+jobs:
+  dbt-execution:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Authenticate to GCP using a GitHub Secret
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: "${{ secrets.GCP_SA_KEY }}"
+
+      # Mount the repository and the injected GCP credentials into the Docker container
+      - name: Run dbt build
+        run: |
+          docker run --rm \
+            -v ${{ github.workspace }}:/usr/app \
+            -v ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}:/tmp/gcp.json \
+            -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp.json \
+            -w /usr/app/dbt \
+            ghcr.io/dbt-labs/dbt-bigquery:1.7.latest \
+            bash -c "dbt deps && dbt build --target prod"
