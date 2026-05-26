@@ -11,9 +11,10 @@ sports:
       location: us-south1
     prod:
       type: bigquery
-      method: oauth
+      method: service-account
       project: belayground-467323
-      dataset: nba
+      dataset: dbt
       threads: 4
       timeout_seconds: 300
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"
       location: us-south1
