@@ -2,7 +2,7 @@ name: dbt Production Pipeline
 # 1. runs automatically when a PR is merged into the main branch
 # 2. runs on a schedule (e.g., every day at 8:00 AM UTC)
 # 3. authenticate to GCP using github secret
-# 4. mount the repository and the injected GCP credentials into the Docker container
+# 4. install dbt with Python and run it from the dbt project directory
 on:
   push:
     branches:
@@ -14,23 +14,35 @@ on:
 jobs:
   dbt-execution:
     runs-on: ubuntu-latest
+    env:
+      DBT_PROFILES_DIR: ${{ github.workspace }}/dbt
 
     steps:
-      - name: Checkout repository
+      - name: checkout repository
         uses: actions/checkout@v4
 
-      - name: Authenticate to Google Cloud
+      - name: authenticate to google cloud
         uses: google-github-actions/auth@v2
         with:
           credentials_json: "${{ secrets.GCP_SA_KEY }}"
+          create_credentials_file: true
+          export_environment_variables: true
 
-      - name: Run dbt build
+      - name: set up python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: install dbt
         run: |
-          docker run --rm \
-            --entrypoint bash \
-            -v ${{ github.workspace }}:/usr/app \
-            -v ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}:/tmp/gcp.json:ro \
-            -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp.json \
-            -w /usr/app/dbt \
-            ghcr.io/dbt-labs/dbt-bigquery:1.11.latest \
-            -lc "dbt deps && dbt build --target prod"
+          python -m pip install --upgrade pip
+          python -m pip install dbt-core==1.11.9 dbt-bigquery==1.11.1
+
+      - name: install dbt dependencies
+        working-directory: dbt
+        run: dbt deps
+
+      - name: build dbt project
+        working-directory: dbt
+        run: |
+          dbt build --target prod
