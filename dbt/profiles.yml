@@ -8,7 +8,7 @@ sports:
       dataset: nba_staging
       threads: 4
       timeout_seconds: 300
-      location: US
+      location: us-south1
     prod:
       type: bigquery
       method: oauth
@@ -16,4 +16,4 @@ sports:
       dataset: nba
       threads: 4
       timeout_seconds: 300
-      location: US
+      location: us-south1

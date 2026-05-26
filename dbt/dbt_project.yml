@@ -40,7 +40,7 @@ models:
 
     staging:
       nba:
-        +schema: nba_staging
+        +schema: nba
         +materialized: view
 seeds:
   sports:
