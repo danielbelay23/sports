@@ -24,3 +24,8 @@ ELT/kaggle data/
 
 # macos
 .DS_Store
+
+# local research / scratch files
+deep_research/
+scratch_residual_odds_diff.ipynb
+nba_custom_implied_odds_career.sql
