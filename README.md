@@ -14,7 +14,7 @@ Raw files in GCS
   -> dbt source declarations
   -> dbt staging views
   -> dbt NBA models (plan to do the same w NFL)
-  -> Streamlit / analytics app queries
+  -> Streamlit
 ```
 
 ### 1. GCS raw landing

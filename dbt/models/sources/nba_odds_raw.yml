@@ -6,8 +6,12 @@ sources:
     schema: nba_odds_raw
     tables:
       - name: nba_betting_money_line
+        description: "odds of winning the game"
       - name: nba_betting_spread
+        description: "odds of the point differenial"
       - name: nba_betting_totals
+        description: "odds of the point total between both teams"
+      - name: nba_betting_series_odds
       - name: nba_games_all
       - name: nba_players_all
       - name: nba_players_game_stats
