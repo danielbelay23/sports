@@ -27,9 +27,10 @@ jobs:
       - name: Run dbt build
         run: |
           docker run --rm \
+            --entrypoint bash \
             -v ${{ github.workspace }}:/usr/app \
-            -v ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}:/tmp/gcp.json \
+            -v ${{ env.GOOGLE_APPLICATION_CREDENTIALS }}:/tmp/gcp.json:ro \
             -e GOOGLE_APPLICATION_CREDENTIALS=/tmp/gcp.json \
             -w /usr/app/dbt \
-            ghcr.io/dbt-labs/dbt-bigquery:1.7.latest \
-            bash -c "dbt deps && dbt build --target prod"
+            ghcr.io/dbt-labs/dbt-bigquery:1.11.latest \
+            -lc "dbt deps && dbt build --target prod"
