@@ -7,22 +7,17 @@
 
 select
     `game_id`,
+    `home_team_id`,
+    `away_team_id`,
     `game_date`,
     `matchup`,
-    `team_id`,
-    `is_home`,
-    `w`,
-    `l`,
-    `w_pct`,
-    `a_team_id`,
     `season_year`,
     `season_type`,
-    `season`
-
-from {{ ref('stg_nba_games_all') }} a
-left join {{ ref('stg_nba_betting_money_line') }} b
-on a.game_id = b.game_id
-left join {{ ref('stg_nba_betting_spread') }} c
-on a.game_id = c.game_id
-left join {{ ref('stg_nba_betting_totals') }} d
-on a.game_id = d.game_id
+    `season`,
+    `home_wl`,
+    `away_wl`,
+    `implied_win_prob_home`,
+    `implied_win_prob_away`,
+    `avg_money_line_price_home`,
+    `avg_money_line_price_away`
+from {{ ref('stg_nba_betting_final') }}
