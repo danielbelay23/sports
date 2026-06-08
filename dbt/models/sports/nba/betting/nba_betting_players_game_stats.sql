@@ -1,0 +1,42 @@
+{{
+    config(
+        materialized='view'
+    )
+}}
+
+select
+    `season_id`,
+    `player_id`,
+    `player_name`,
+    `team_id`,
+    `team_abbreviation`,
+    `team_name`,
+    `game_id`,
+    `game_date`,
+    `matchup`,
+    `wl`,
+    `min`,
+    `fgm`,
+    `fga`,
+    `fg_pct`,
+    `fg3m`,
+    `fg3a`,
+    `fg3_pct`,
+    `ftm`,
+    `fta`,
+    `ft_pct`,
+    `oreb`,
+    `dreb`,
+    `reb`,
+    `ast`,
+    `stl`,
+    `blk`,
+    `tov`,
+    `pf`,
+    `pts`,
+    `plus_minus`,
+    `season_type`,
+    `season_year`,
+    `season`
+
+from {{ ref('stg_nba_betting_players_game_stats') }}

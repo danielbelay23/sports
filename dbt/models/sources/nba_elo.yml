@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: nba_elo
+    database: belayground-467323
+    schema: nba_elo
+    tables:
+      - name: nba_elo_playoffs_post1977
+      - name: nba_elo_playoffs_pre1976
+      - name: nba_elo_pre1976
+      - name: nba_elo_post77

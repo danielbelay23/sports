@@ -1,0 +1,31 @@
+{{
+    config(
+        materialized='view'
+    )
+}}
+
+select
+    `person_id`,
+    `display_last_comma_first`,
+    `display_first_last`,
+    `rosterstatus`,
+    `from_year`,
+    `to_year`,
+    `playercode`,
+    `games_played_flag`,
+    `position`,
+    `draft_year`,
+    `draft_round`,
+    `draft_num`,
+    `birth_date`,
+    `height_feet`,
+    `height_inches`,
+    `height`,
+    `weight`,
+    `season_exp`,
+    `jersey`,
+    `school`,
+    `country`,
+    `last_affiliation`
+
+from {{ ref('stg_nba_betting_players_all') }}

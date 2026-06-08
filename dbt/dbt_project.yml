@@ -40,16 +40,26 @@ models:
 
     staging:
       nba:
-        +schema: nba
-        +materialized: view
-seeds:
-  sports:
-    nba:
-      +schema: nba
+        kaggle:
+          +schema: kaggle
+          +materialized: table
+        elo:
+          +schema: elo
+          +materialized: table
+        betting:
+          +schema: betting
+          +materialized: table
+        custom:
+          +schema: custom
+          +materialized: table
 
-snapshots:
-  nba:
-    +schema: snapshots
-
-data_tests:
-  +severity: warn
+    sports:
+      nba:
+        kaggle:
+          +schema: kaggle
+        elo:
+          +schema: elo
+        betting:
+          +schema: betting
+        custom:
+          +schema: custom
