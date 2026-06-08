@@ -1,0 +1,38 @@
+{{ config(materialized='table') }}
+
+select
+    safe_cast(season_id as int64) as season_id,
+    safe_cast(player_id as int64) as player_id,
+    safe_cast(player_name as string) as player_name,
+    safe_cast(team_id as int64) as team_id,
+    safe_cast(team_abbreviation as string) as team_abbreviation,
+    safe_cast(team_name as string) as team_name,
+    safe_cast(game_id as int64) as game_id,
+    safe_cast(game_date as date) as game_date,
+    safe_cast(matchup as string) as matchup,
+    safe_cast(wl as string) as wl,
+    safe_cast(min as int64) as min,
+    safe_cast(fgm as int64) as fgm,
+    safe_cast(fga as int64) as fga,
+    safe_cast(fg_pct as float64) as fg_pct,
+    safe_cast(fg3m as string) as fg3m,
+    safe_cast(fg3a as string) as fg3a,
+    safe_cast(fg3_pct as string) as fg3_pct,
+    safe_cast(ftm as int64) as ftm,
+    safe_cast(fta as int64) as fta,
+    safe_cast(ft_pct as float64) as ft_pct,
+    safe_cast(oreb as string) as oreb,
+    safe_cast(dreb as string) as dreb,
+    safe_cast(reb as int64) as reb,
+    safe_cast(ast as int64) as ast,
+    safe_cast(stl as string) as stl,
+    safe_cast(blk as string) as blk,
+    safe_cast(tov as string) as tov,
+    safe_cast(pf as int64) as pf,
+    safe_cast(pts as int64) as pts,
+    safe_cast(plus_minus as string) as plus_minus,
+    safe_cast(season_type as string) as season_type,
+    safe_cast(season_year as int64) as season_year,
+    safe_cast(season as string) as season
+
+from {{ source('nba_odds_raw', 'nba_players_game_stats') }}

@@ -1,0 +1,71 @@
+{{
+    config(
+        materialized='view'
+    )
+}}
+
+select
+    game_id,
+    game_date_time_est as game_datetime_est,
+    team_city,
+    team_name,
+    team_id,
+    opponent_team_city,
+    opponent_team_name,
+    opponent_team_id,
+    home,
+    win,
+    team_score,
+    opponent_score,
+    assists,
+    blocks,
+    steals,
+    field_goals_attempted,
+    field_goals_made,
+    field_goals_percentage,
+    three_pointers_attempted,
+    three_pointers_made,
+    three_pointers_percentage,
+    free_throws_attempted,
+    free_throws_made,
+    free_throws_percentage,
+    rebounds_defensive,
+    rebounds_offensive,
+    rebounds_total,
+    fouls_personal,
+    turnovers,
+    plus_minus_points,
+    num_minutes,
+    q1_points,
+    q2_points,
+    q3_points,
+    q4_points,
+    bench_points,
+    biggest_lead,
+    biggest_scoring_run,
+    lead_changes,
+    points_fast_break,
+    points_from_turnovers,
+    points_in_the_paint,
+    points_second_chance,
+    times_tied,
+    timeouts_remaining,
+    season_wins,
+    season_losses,
+    coach_id,
+    game_type,
+    case
+        when game_label is null then null
+        else replace(game_label, '- ', '')
+    end as game_label,
+    game_sub_label,
+    cast(series_game_number as float64) as series_game_number,
+    seed,
+    rebounds_team,
+    turnovers_team,
+    ot1_points,
+    ot2_points,
+    ot_all_points,
+    game_date
+
+from {{ ref('stg_nba_kaggle_team_statistics') }}
