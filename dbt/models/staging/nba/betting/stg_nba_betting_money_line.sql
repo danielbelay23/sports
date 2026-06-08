@@ -1,7 +1,7 @@
 {{ config(materialized='table') }}
 
 select
-    safe_cast(game_id as int64)as game_id,
+    safe_cast(game_id as int64) as game_id,
     safe_cast(book_name as string) as book_name,
     safe_cast(book_id as int64) as book_id,
     safe_cast(team_id as int64) as team_id,
