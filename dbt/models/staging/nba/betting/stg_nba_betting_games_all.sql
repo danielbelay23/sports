@@ -2,25 +2,25 @@
 
 with home_teams as (
     select
-        safe_cast(game_id as int64)          as game_id,
-        safe_cast(game_date as date)         as game_date,
-        safe_cast(matchup as string)         as matchup,
-        safe_cast(team_id as int64)          as home_team_id,
-        safe_cast(pts as int64)              as home_pts,
-        safe_cast(wl as string)              as home_wl,
-        safe_cast(season_year as int64)      as season_year,
-        safe_cast(season_type as string)     as season_type,
-        safe_cast(season as string)          as season
+        safe_cast(game_id as int64) as game_id,
+        safe_cast(game_date as date) as game_date,
+        safe_cast(matchup as string) as matchup,
+        safe_cast(team_id as int64) as home_team_id,
+        safe_cast(pts as int64) as home_pts,
+        safe_cast(wl as string) as home_wl,
+        safe_cast(season_year as int64) as season_year,
+        safe_cast(season_type as string) as season_type,
+        safe_cast(season as string) as season
     from {{ source('nba_odds_raw', 'nba_games_all') }}
     where is_home = true
 ),
 
 away_teams as (
     select
-        safe_cast(game_id as int64)          as game_id,
-        safe_cast(team_id as int64)          as away_team_id,
-        safe_cast(pts as int64)              as away_pts,
-        safe_cast(wl as string)              as away_wl
+        safe_cast(game_id as int64) as game_id,
+        safe_cast(team_id as int64) as away_team_id,
+        safe_cast(pts as int64) as away_pts,
+        safe_cast(wl as string) as away_wl
     from {{ source('nba_odds_raw', 'nba_games_all') }}
     where is_home = false
 )
