@@ -9,3 +9,5 @@ sources:
       - name: nba_elo_playoffs_pre1976
       - name: nba_elo_pre1976
       - name: nba_elo_post77
+      - name: nba_elo_all_time
+      - name: nba_elo_teams_all_time
