@@ -6,22 +6,12 @@
 
 with elo as (
     select
-        * except(team_id, opp_id, is_copy),
-
-        case
-            when team_id = 'CHH' then 'CHA'
-            when team_id = 'WSB' then 'WAS'
-            else team_id
-        end as team_id,
-
-        case
-            when opp_id = 'CHH' then 'CHA'
-            when opp_id = 'WSB' then 'WAS'
-            else opp_id
-        end as opp_id
-
-    from {{ ref('stg_nba_elo_playoffs_post_1977') }}
-    where is_copy = 0
+        * except(
+            kaggle_team_id,
+            kaggle_opp_team_id,
+            kaggle_home_team_id
+        )
+    from {{ ref('elo_games_all_time') }}
 ),
 
 elo_game_team_ids as (

@@ -14,10 +14,14 @@ with final as (
         player_team_id,
         opponent_team_id,
 
+        round(safe_divide(
+            sum(num_minutes),
+            count(distinct kaggle_game_id)
+        ),1) as series_minutes_per_game,
+
         min(date_game) as series_start_date,
         max(date_game) as series_end_date,
         count(distinct kaggle_game_id) as player_series_games_played,
-
         sum(num_minutes) as series_minutes,
         sum(points) as series_points,
         sum(assists) as series_assists,
