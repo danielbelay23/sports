@@ -60,7 +60,7 @@ with elo as (
 
         cast(null as string) as notes
 
-    from {{ ref('stg_nba_all_time_playoffs') }}
+    from {{ ref('stg_nba_elo_playoff_games') }}
     where is_playoff = 1
         and home_pts is not null
         and away_pts is not null
@@ -76,7 +76,7 @@ elo_teams as (
         trim(cast(team_name as string)) as team_name,
         trim(cast(franch as string)) as franch,
         safe_cast(year as int64) as year_id
-    from {{ ref('stg_nba_elo_teams') }}
+    from {{ ref('stg_nba_elo_team_seasons') }}
 ),
 
 elo_with_manual_team_ids as (
