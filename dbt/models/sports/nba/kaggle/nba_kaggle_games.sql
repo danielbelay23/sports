@@ -25,7 +25,7 @@ select
         when game_label is null then null
         else replace(game_label, '- ', '')
     end as game_label,
-    cast(case
+    safe_cast(case
         when series_game_number like "%1%" then "1"
         else series_game_number end as float64
     ) as series_game_number,
