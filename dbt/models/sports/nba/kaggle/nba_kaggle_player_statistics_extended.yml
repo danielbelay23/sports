@@ -1,0 +1,305 @@
+version: 2
+models:
+  - name: nba_kaggle_player_statistics_extended
+    columns:
+      - name: first_name
+        description: Player first name.
+        data_type: STRING
+      - name: last_name
+        description: Player last name.
+        data_type: STRING
+      - name: person_id
+        description: Unique NBA person identifier for the player.
+        data_type: INT64
+      - name: game_id
+        description: Unique identifier for the NBA game.
+        data_type: INT64
+      - name: game_datetime_est
+        data_type: TIMESTAMP
+      - name: series_id
+        data_type: STRING
+      - name: game_type
+        description: Game type from the source.
+        data_type: STRING
+      - name: game_label
+        description: Game label from the source.
+        data_type: STRING
+      - name: series_game_number
+        description: Playoff series game number, when applicable.
+        data_type: FLOAT64
+      - name: game_sub_label
+        description: Game sublabel from the source.
+        data_type: STRING
+      - name: win
+        description: Flag indicating whether the player team won.
+        data_type: INT64
+      - name: home
+        description: Flag indicating whether the player team was home.
+        data_type: INT64
+      - name: player_team_id
+        description: NBA team identifier for the player team.
+        data_type: INT64
+      - name: player_team_city
+        description: Player team city.
+        data_type: STRING
+      - name: player_team_name
+        description: Player team nickname.
+        data_type: STRING
+      - name: opponent_team_id
+        description: NBA team identifier for the opponent team.
+        data_type: INT64
+      - name: opponent_team_city
+        description: Opponent team city.
+        data_type: STRING
+      - name: opponent_team_name
+        description: Opponent team nickname.
+        data_type: STRING
+      - name: comment
+        description: Source comment for the player game row.
+        data_type: STRING
+      - name: starting_position
+        description: Player starting position.
+        data_type: STRING
+      - name: num_minutes
+        description: Minutes played.
+        data_type: FLOAT64
+      - name: points
+        description: Points scored.
+        data_type: INT64
+      - name: assists
+        description: Assists.
+        data_type: INT64
+      - name: rebounds_total
+        description: Total rebounds.
+        data_type: INT64
+      - name: rebounds_offensive
+        description: Offensive rebounds.
+        data_type: INT64
+      - name: rebounds_defensive
+        description: Defensive rebounds.
+        data_type: INT64
+      - name: field_goals_made
+        description: Field goals made.
+        data_type: INT64
+      - name: field_goals_attempted
+        description: Field goals attempted.
+        data_type: INT64
+      - name: field_goals_percentage
+        description: Field goal percentage.
+        data_type: FLOAT64
+      - name: three_pointers_made
+        description: Three-point field goals made.
+        data_type: INT64
+      - name: three_pointers_attempted
+        description: Three-point field goals attempted.
+        data_type: INT64
+      - name: three_pointers_percentage
+        description: Three-point field goal percentage.
+        data_type: FLOAT64
+      - name: free_throws_made
+        description: Free throws made.
+        data_type: INT64
+      - name: free_throws_attempted
+        description: Free throws attempted.
+        data_type: INT64
+      - name: free_throws_percentage
+        description: Free throw percentage.
+        data_type: FLOAT64
+      - name: steals
+        description: Steals.
+        data_type: INT64
+      - name: blocks
+        description: Blocks.
+        data_type: INT64
+      - name: blocks_against
+        description: Blocks against the player.
+        data_type: INT64
+      - name: turnovers
+        description: Turnovers.
+        data_type: INT64
+      - name: fouls_personal
+        description: Personal fouls.
+        data_type: INT64
+      - name: fouls_against
+        description: Fouls drawn by or against the player as labeled by the source.
+        data_type: INT64
+      - name: plus_minus_points
+        description: Plus-minus points.
+        data_type: INT64
+      - name: double_double
+        description: Flag indicating a double-double.
+        data_type: INT64
+      - name: triple_double
+        description: Flag indicating a triple-double.
+        data_type: INT64
+      - name: estimated_offensive_rating
+        description: Estimated offensive rating.
+        data_type: FLOAT64
+      - name: offensive_rating
+        description: Offensive rating.
+        data_type: FLOAT64
+      - name: sp_work_offensive_rating
+        description: Source-specific offensive rating variant.
+        data_type: FLOAT64
+      - name: estimated_defensive_rating
+        description: Estimated defensive rating.
+        data_type: FLOAT64
+      - name: defensive_rating
+        description: Defensive rating.
+        data_type: FLOAT64
+      - name: sp_work_defensive_rating
+        description: Source-specific defensive rating variant.
+        data_type: FLOAT64
+      - name: estimated_net_rating
+        description: Estimated net rating.
+        data_type: FLOAT64
+      - name: net_rating
+        description: Net rating.
+        data_type: FLOAT64
+      - name: sp_work_net_rating
+        description: Source-specific net rating variant.
+        data_type: FLOAT64
+      - name: assist_percentage
+        description: Assist percentage.
+        data_type: FLOAT64
+      - name: assist_to_turnover_ratio
+        description: Assist-to-turnover ratio.
+        data_type: FLOAT64
+      - name: assist_ratio
+        description: Assist ratio.
+        data_type: FLOAT64
+      - name: offensive_rebound_percentage
+        description: Offensive rebound percentage.
+        data_type: FLOAT64
+      - name: defensive_rebound_percentage
+        description: Defensive rebound percentage.
+        data_type: FLOAT64
+      - name: rebound_percentage
+        description: Total rebound percentage.
+        data_type: FLOAT64
+      - name: team_turnover_percentage
+        description: Team turnover percentage.
+        data_type: FLOAT64
+      - name: estimated_turnover_percentage
+        description: Estimated turnover percentage.
+        data_type: FLOAT64
+      - name: effective_field_goal_percentage
+        description: Effective field goal percentage.
+        data_type: FLOAT64
+      - name: true_shooting_percentage
+        description: True shooting percentage.
+        data_type: FLOAT64
+      - name: usage_percentage
+        description: Usage percentage.
+        data_type: FLOAT64
+      - name: estimated_usage_percentage
+        description: Estimated usage percentage.
+        data_type: FLOAT64
+      - name: estimated_pace
+        description: Estimated pace.
+        data_type: FLOAT64
+      - name: pace
+        description: Pace.
+        data_type: FLOAT64
+      - name: pace_per_40
+        description: Pace per 40 minutes.
+        data_type: FLOAT64
+      - name: sp_work_pace
+        description: Source-specific pace variant.
+        data_type: FLOAT64
+      - name: player_impact_estimate
+        description: Player impact estimate.
+        data_type: FLOAT64
+      - name: possessions
+        description: Possessions.
+        data_type: FLOAT64
+      - name: points_off_turnovers
+        description: Points scored off turnovers.
+        data_type: INT64
+      - name: points_second_chance
+        description: Second-chance points.
+        data_type: INT64
+      - name: points_fast_break
+        description: Fast-break points.
+        data_type: INT64
+      - name: points_in_paint
+        description: Points in the paint.
+        data_type: INT64
+      - name: opponent_points_off_turnovers
+        description: Opponent points off turnovers.
+        data_type: INT64
+      - name: opponent_points_second_chance
+        description: Opponent second-chance points.
+        data_type: INT64
+      - name: opponent_points_fast_break
+        description: Opponent fast-break points.
+        data_type: INT64
+      - name: opponent_points_in_paint
+        description: Opponent points in the paint.
+        data_type: INT64
+      - name: percent_field_goal_attempts_2_point
+        description: Share of field goal attempts that were two-point attempts.
+        data_type: FLOAT64
+      - name: percent_field_goal_attempts_3_point
+        description: Share of field goal attempts that were three-point attempts.
+        data_type: FLOAT64
+      - name: percent_points_2_point
+        description: Share of points from two-point field goals.
+        data_type: FLOAT64
+      - name: percent_points_2_point_mid_range
+        description: Share of points from mid-range two-point field goals.
+        data_type: FLOAT64
+      - name: percent_points_3_point
+        description: Share of points from three-point field goals.
+        data_type: FLOAT64
+      - name: percent_points_fast_break
+        description: Share of points from fast breaks.
+        data_type: FLOAT64
+      - name: percent_points_free_throw
+        description: Share of points from free throws.
+        data_type: FLOAT64
+      - name: percent_points_off_turnovers
+        description: Share of points from turnovers.
+        data_type: FLOAT64
+      - name: percent_points_in_paint
+        description: Share of points from the paint.
+        data_type: FLOAT64
+      - name: percent_assisted_2_point_made
+        description: Share of made two-point field goals that were assisted.
+        data_type: FLOAT64
+      - name: percent_unassisted_2_point_made
+        description: Share of made two-point field goals that were unassisted.
+        data_type: FLOAT64
+      - name: percent_assisted_3_point_made
+        description: Share of made three-point field goals that were assisted.
+        data_type: FLOAT64
+      - name: percent_unassisted_3_point_made
+        description: Share of made three-point field goals that were unassisted.
+        data_type: FLOAT64
+      - name: percent_assisted_field_goals_made
+        description: Share of made field goals that were assisted.
+        data_type: FLOAT64
+      - name: percent_unassisted_field_goals_made
+        description: Share of made field goals that were unassisted.
+        data_type: FLOAT64
+      - name: percent_team_field_goals_made
+        description: Player share of team field goals made.
+        data_type: FLOAT64
+      - name: percent_team_field_goals_attempted
+        description: Player share of team field goals attempted.
+        data_type: FLOAT64
+      - name: percent_team_three_pointers_made
+        description: Player share of team three-pointers made.
+        data_type: FLOAT64
+      - name: percent_team_three_pointers_attempted
+        description: Player share of team three-pointers attempted.
+        data_type: FLOAT64
+      - name: percent_team_free_throws_made
+        description: Player share of team free throws made.
+        data_type: FLOAT64
+      - name: percent_team_free_throws_attempted
+        description: Player share of team free throws attempted.
+        data_type: FLOAT64
+      - name: percent_team_offensive_rebounds
+        description: Player share of team offensive rebounds.
+        data_type: FLOAT64

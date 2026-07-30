@@ -1,0 +1,73 @@
+version: 2
+models:
+  - name: nba_elo_team_seasons
+    columns:
+      - name: team_id
+        description: NBA team identifier matched from team history.
+        data_type: INT64
+      - name: team_abbrev
+        description: Team abbreviation from the Elo source.
+        data_type: STRING
+      - name: full_team_name
+        description: Full team name from the Elo source.
+        data_type: STRING
+      - name: team_city
+        description: Parsed team city.
+        data_type: STRING
+      - name: team_name
+        description: Parsed team nickname.
+        data_type: STRING
+      - name: franch
+        description: Elo franchise identifier.
+        data_type: STRING
+      - name: year
+        description: Season year.
+        data_type: INT64
+      - name: games
+        description: Games played in the season.
+        data_type: INT64
+      - name: wins
+        description: Regular-season wins.
+        data_type: INT64
+      - name: losses
+        description: Regular-season losses.
+        data_type: INT64
+      - name: points_for
+        description: Total points scored by the team.
+        data_type: INT64
+      - name: points_against
+        description: Total points allowed by the team.
+        data_type: INT64
+      - name: points_per_game_diff
+        description: Average point differential per game.
+        data_type: FLOAT64
+      - name: offense_rating
+        description: Elo source offensive rating.
+        data_type: FLOAT64
+      - name: defense_rating
+        description: Elo source defensive rating.
+        data_type: FLOAT64
+      - name: elo_preseason
+        description: Preseason Elo rating.
+        data_type: FLOAT64
+      - name: elo_midseason
+        description: Midseason Elo rating.
+        data_type: FLOAT64
+      - name: elo_end_of_regular_season
+        description: Elo rating at the end of the regular season.
+        data_type: FLOAT64
+      - name: playoffs_won
+        description: Playoff games or series won as provided by the source.
+        data_type: INT64
+      - name: playoffs_lost
+        description: Playoff games or series lost as provided by the source.
+        data_type: INT64
+      - name: playoff_outcome
+        description: Team playoff outcome label.
+        data_type: STRING
+      - name: playoff_elo
+        description: Playoff Elo rating.
+        data_type: FLOAT64
+      - name: coaches
+        description: Coaches listed for the team season.
+        data_type: STRING

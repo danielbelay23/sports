@@ -3,6 +3,8 @@ version: 2
 sources:
   - name: nba_elo
     database: belayground-467323
+    config:
+      freshness: null
     schema: nba_elo
     tables:
       - name: nba_elo_all_time

@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: nba_betting_teams_all
+    columns:
+      - name: league_id
+        description: NBA league identifier.
+        data_type: INT64
+      - name: team_id
+        description: NBA team identifier.
+        data_type: INT64
+      - name: min_year
+        description: First active season year in the source feed.
+        data_type: INT64
+      - name: max_year
+        description: Last active season year in the source feed.
+        data_type: INT64
+      - name: abbreviation
+        description: NBA team abbreviation.
+        data_type: STRING

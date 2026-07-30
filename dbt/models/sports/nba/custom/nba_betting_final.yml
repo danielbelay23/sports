@@ -1,0 +1,48 @@
+version: 2
+models:
+  - name: nba_betting_final
+    columns:
+      - name: game_id
+        description: Unique identifier for the NBA game.
+        data_type: INT64
+      - name: home_team_id
+        description: NBA team identifier for the home team.
+        data_type: INT64
+      - name: away_team_id
+        description: NBA team identifier for the away team.
+        data_type: INT64
+      - name: game_date
+        description: Date the game was played.
+        data_type: DATE
+      - name: matchup
+        description: Game matchup label.
+        data_type: STRING
+      - name: season_year
+        description: NBA season year associated with the game.
+        data_type: INT64
+      - name: season_type
+        description: Season phase, filtered to playoff games in this model.
+        data_type: STRING
+      - name: season
+        description: Source season label.
+        data_type: STRING
+      - name: home_wl
+        description: Win/loss result for the home team.
+        data_type: STRING
+      - name: away_wl
+        description: Win/loss result for the away team.
+        data_type: STRING
+      - name: implied_win_prob_home
+        description: Average implied win probability for the home team derived from moneyline 
+          prices.
+        data_type: FLOAT64
+      - name: implied_win_prob_away
+        description: Average implied win probability for the away team derived from moneyline 
+          prices.
+        data_type: FLOAT64
+      - name: avg_money_line_price_home
+        description: Average home-team moneyline price across sportsbooks.
+        data_type: FLOAT64
+      - name: avg_money_line_price_away
+        description: Average away-team moneyline price across sportsbooks.
+        data_type: FLOAT64

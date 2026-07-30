@@ -1,0 +1,274 @@
+version: 2
+models:
+  - name: nba_kaggle_play_by_play
+    columns:
+      - name: clock
+        description: Game clock at the event.
+        data_type: STRING
+      - name: action_type
+        description: Primary event action type.
+        data_type: STRING
+      - name: description
+        description: Text description of the event.
+        data_type: STRING
+      - name: player_full_name
+        description: Full name of the primary player involved.
+        data_type: STRING
+      - name: team_tricode
+        description: Team tricode for the event.
+        data_type: STRING
+      - name: game_id
+        description: Unique identifier for the NBA game.
+        data_type: INT64
+      - name: game_datetime_est
+        data_type: TIMESTAMP
+      - name: period_type
+        description: Period type, such as quarter or overtime.
+        data_type: STRING
+      - name: period
+        description: Game period number.
+        data_type: INT64
+      - name: short_formatted_clock
+        description: Short formatted game clock.
+        data_type: STRING
+      - name: time_actual
+        description: Actual timestamp of the event.
+        data_type: TIMESTAMP
+      - name: action_number
+        description: Source action sequence number.
+        data_type: INT64
+      - name: order_number
+        description: Source ordering number for the event.
+        data_type: INT64
+      - name: action_id
+        description: Source action identifier.
+        data_type: INT64
+      - name: team_id
+        description: NBA team identifier for the event team.
+        data_type: INT64
+      - name: side
+        description: Court side or possession side from the source.
+        data_type: STRING
+      - name: location
+        description: Event location label from the source.
+        data_type: STRING
+      - name: player_team_city
+        description: Player team city.
+        data_type: STRING
+      - name: player_team_name
+        description: Player team nickname.
+        data_type: STRING
+      - name: opponent_team_city
+        description: Opponent team city.
+        data_type: STRING
+      - name: opponent_team_name
+        description: Opponent team nickname.
+        data_type: STRING
+      - name: score_home
+        description: Home score after or at the event.
+        data_type: STRING
+      - name: score_away
+        description: Away score after or at the event.
+        data_type: STRING
+      - name: possession
+        description: Possession indicator from the source.
+        data_type: INT64
+      - name: is_target_score_last_period
+        description: Flag for target-score final-period context.
+        data_type: INT64
+      - name: sub_type
+        description: Event subtype.
+        data_type: STRING
+      - name: descriptor
+        description: Additional event descriptor.
+        data_type: STRING
+      - name: qualifiers
+        description: Array of event qualifier values.
+        data_type: ARRAY<STRUCT<`element` STRING>>
+      - name: qualifiers.element
+        data_type: STRING
+      - name: edited
+        description: Source edited flag or timestamp.
+        data_type: STRING
+      - name: value
+        description: Source event value.
+        data_type: STRING
+      - name: person_id
+        description: NBA person identifier for the primary player.
+        data_type: INT64
+      - name: player_name
+        description: Primary player display name.
+        data_type: STRING
+      - name: player_name_initial
+        description: Primary player abbreviated name.
+        data_type: STRING
+      - name: jersey_number
+        description: Primary player jersey number.
+        data_type: STRING
+      - name: x
+        description: Event x coordinate.
+        data_type: FLOAT64
+      - name: "y"
+        description: Event y coordinate.
+        data_type: FLOAT64
+      - name: x_legacy
+        description: Legacy event x coordinate.
+        data_type: INT64
+      - name: y_legacy
+        description: Legacy event y coordinate.
+        data_type: INT64
+      - name: area
+        description: Court area for the event.
+        data_type: STRING
+      - name: area_detail
+        description: Detailed court area for the event.
+        data_type: STRING
+      - name: is_field_goal
+        description: Flag indicating whether the event is a field goal attempt.
+        data_type: INT64
+      - name: shot_distance
+        description: Shot distance.
+        data_type: FLOAT64
+      - name: shot_value
+        description: Point value of the shot attempt.
+        data_type: INT64
+      - name: shot_result
+        description: Shot result.
+        data_type: STRING
+      - name: points_total
+        description: Total points credited on the event.
+        data_type: INT64
+      - name: shot_action_number
+        description: Action number for the associated shot.
+        data_type: INT64
+      - name: assist_person_id
+        description: NBA person identifier for the assisting player.
+        data_type: INT64
+      - name: assist_full_name
+        description: Full name of the assisting player.
+        data_type: STRING
+      - name: assist_player_name
+        description: Display name of the assisting player.
+        data_type: STRING
+      - name: assist_player_name_initial
+        description: Abbreviated name of the assisting player.
+        data_type: STRING
+      - name: assist_total
+        description: Assist total after the event.
+        data_type: INT64
+      - name: rebound_total
+        description: Rebound total after the event.
+        data_type: INT64
+      - name: rebound_defensive_total
+        description: Defensive rebound total after the event.
+        data_type: INT64
+      - name: rebound_offensive_total
+        description: Offensive rebound total after the event.
+        data_type: INT64
+      - name: turnover_total
+        description: Turnover total after the event.
+        data_type: INT64
+      - name: steal_person_id
+        description: NBA person identifier for the stealing player.
+        data_type: INT64
+      - name: steal_full_name
+        description: Full name of the stealing player.
+        data_type: STRING
+      - name: steal_player_name
+        description: Display name of the stealing player.
+        data_type: STRING
+      - name: steal_total
+        description: Steal total after the event.
+        data_type: INT64
+      - name: foul_personal_total
+        description: Personal foul total after the event.
+        data_type: INT64
+      - name: foul_technical_total
+        description: Technical foul total after the event.
+        data_type: INT64
+      - name: foul_drawn_person_id
+        description: NBA person identifier for the player who drew the foul.
+        data_type: INT64
+      - name: foul_drawn_full_name
+        description: Full name of the player who drew the foul.
+        data_type: STRING
+      - name: foul_drawn_player_name
+        description: Display name of the player who drew the foul.
+        data_type: STRING
+      - name: block_person_id
+        description: NBA person identifier for the blocking player.
+        data_type: INT64
+      - name: block_full_name
+        description: Full name of the blocking player.
+        data_type: STRING
+      - name: block_player_name
+        description: Display name of the blocking player.
+        data_type: STRING
+      - name: block_total
+        description: Block total after the event.
+        data_type: INT64
+      - name: jump_ball_recovered_name
+        description: Name of the player who recovered the jump ball.
+        data_type: STRING
+      - name: jump_ball_recovered_person_id
+        description: NBA person identifier for the player who recovered the jump ball.
+        data_type: INT64
+      - name: jump_ball_recovered_full_name
+        description: Full name of the player who recovered the jump ball.
+        data_type: STRING
+      - name: jump_ball_won_person_id
+        description: NBA person identifier for the player who won the jump ball.
+        data_type: INT64
+      - name: jump_ball_won_full_name
+        description: Full name of the player who won the jump ball.
+        data_type: STRING
+      - name: jump_ball_won_player_name
+        description: Display name of the player who won the jump ball.
+        data_type: STRING
+      - name: jump_ball_lost_person_id
+        description: NBA person identifier for the player who lost the jump ball.
+        data_type: INT64
+      - name: jump_ball_lost_full_name
+        description: Full name of the player who lost the jump ball.
+        data_type: STRING
+      - name: jump_ball_lost_player_name
+        description: Display name of the player who lost the jump ball.
+        data_type: STRING
+      - name: subs_in_person_id
+        description: NBA person identifier for the player subbed in.
+        data_type: INT64
+      - name: subs_in_full_name
+        description: Full name of the player subbed in.
+        data_type: STRING
+      - name: subs_in_player_name
+        description: Display name of the player subbed in.
+        data_type: STRING
+      - name: official_id
+        description: Official identifier associated with the event.
+        data_type: INT64
+      - name: video_available
+        description: Flag indicating whether video is available.
+        data_type: INT64
+      - name: person_ids_filter
+        description: Array of person identifiers associated with the event.
+        data_type: ARRAY<STRUCT<`element` STRING>>
+      - name: person_ids_filter.element
+        data_type: STRING
+      - name: game_type
+        description: Game type from the source.
+        data_type: STRING
+      - name: player_team_id
+        description: NBA team identifier for the player team.
+        data_type: INT64
+      - name: opponent_team_id
+        description: NBA team identifier for the opponent team.
+        data_type: INT64
+      - name: jump_ball_recoverd_person_id
+        description: Source misspelled recovered-person identifier for jump ball events.
+        data_type: INT64
+      - name: game_date_time_est_g
+        description: Game-level Eastern timestamp from the source.
+        data_type: TIMESTAMP
+      - name: game_type_g
+        description: Game-level type from the source.
+        data_type: STRING

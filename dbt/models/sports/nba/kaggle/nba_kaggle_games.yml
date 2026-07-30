@@ -1,0 +1,75 @@
+version: 2
+models:
+  - name: nba_kaggle_games
+    columns:
+      - name: game_id
+        description: Unique identifier for the NBA game.
+        data_type: INT64
+      - name: game_date_time_est
+        description: Game date and time in Eastern time.
+        data_type: TIMESTAMP
+      - name: home_team_city
+        description: Home team city.
+        data_type: STRING
+      - name: home_team_name
+        description: Home team nickname.
+        data_type: STRING
+      - name: home_team_id
+        description: NBA team identifier for the home team.
+        data_type: INT64
+      - name: away_team_city
+        description: Away team city.
+        data_type: STRING
+      - name: away_team_name
+        description: Away team nickname.
+        data_type: STRING
+      - name: away_team_id
+        description: NBA team identifier for the away team.
+        data_type: INT64
+      - name: home_score
+        description: Home team score.
+        data_type: INT64
+      - name: away_score
+        description: Away team score.
+        data_type: INT64
+      - name: winner
+        description: NBA team identifier or source winner value for the winning team.
+        data_type: INT64
+      - name: game_type
+        description: Game type from the source.
+        data_type: STRING
+      - name: game_subtype
+        description: Game subtype from the source.
+        data_type: STRING
+      - name: series_id
+        data_type: STRING
+      - name: game_label
+        description: Game label from the source.
+        data_type: STRING
+      - name: series_game_number
+        description: Playoff series game number, when applicable.
+        data_type: FLOAT64
+      - name: game_sublabel
+        description: Game sublabel from the source.
+        data_type: STRING
+      - name: attendance
+        description: Reported game attendance.
+        data_type: INT64
+      - name: arena_id
+        description: Arena identifier.
+        data_type: INT64
+      - name: arena_name
+        description: Arena name.
+        data_type: STRING
+      - name: arena_city
+        description: Arena city.
+        data_type: STRING
+      - name: arena_state
+        description: Arena state.
+        data_type: STRING
+      - name: officials
+        description: Game officials listed by the source.
+        data_type: STRING
+      - name: game_date
+        description: Game date timestamp from the source.
+        data_type: TIMESTAMP

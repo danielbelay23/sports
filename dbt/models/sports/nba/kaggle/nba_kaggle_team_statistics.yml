@@ -1,0 +1,180 @@
+version: 2
+models:
+  - name: nba_kaggle_team_statistics
+    columns:
+      - name: game_id
+        description: Unique identifier for the NBA game.
+        data_type: INT64
+      - name: game_datetime_est
+        data_type: TIMESTAMP
+      - name: team_city
+        description: Team city.
+        data_type: STRING
+      - name: team_name
+        description: Team nickname.
+        data_type: STRING
+      - name: team_id
+        description: NBA team identifier.
+        data_type: INT64
+      - name: opponent_team_city
+        description: Opponent team city.
+        data_type: STRING
+      - name: opponent_team_name
+        description: Opponent team nickname.
+        data_type: STRING
+      - name: opponent_team_id
+        description: NBA team identifier for the opponent.
+        data_type: INT64
+      - name: home
+        description: Flag indicating whether the team was home.
+        data_type: INT64
+      - name: win
+        description: Flag indicating whether the team won.
+        data_type: INT64
+      - name: team_score
+        description: Team score.
+        data_type: INT64
+      - name: opponent_score
+        description: Opponent score.
+        data_type: INT64
+      - name: assists
+        description: Team assists.
+        data_type: INT64
+      - name: blocks
+        description: Team blocks.
+        data_type: INT64
+      - name: steals
+        description: Team steals.
+        data_type: INT64
+      - name: field_goals_attempted
+        description: Team field goals attempted.
+        data_type: INT64
+      - name: field_goals_made
+        description: Team field goals made.
+        data_type: INT64
+      - name: field_goals_percentage
+        description: Team field goal percentage.
+        data_type: FLOAT64
+      - name: three_pointers_attempted
+        description: Team three-point field goals attempted.
+        data_type: INT64
+      - name: three_pointers_made
+        description: Team three-point field goals made.
+        data_type: INT64
+      - name: three_pointers_percentage
+        description: Team three-point field goal percentage.
+        data_type: FLOAT64
+      - name: free_throws_attempted
+        description: Team free throws attempted.
+        data_type: INT64
+      - name: free_throws_made
+        description: Team free throws made.
+        data_type: INT64
+      - name: free_throws_percentage
+        description: Team free throw percentage.
+        data_type: FLOAT64
+      - name: rebounds_defensive
+        description: Team defensive rebounds.
+        data_type: INT64
+      - name: rebounds_offensive
+        description: Team offensive rebounds.
+        data_type: INT64
+      - name: rebounds_total
+        description: Team total rebounds.
+        data_type: INT64
+      - name: fouls_personal
+        description: Team personal fouls.
+        data_type: INT64
+      - name: turnovers
+        description: Team turnovers.
+        data_type: INT64
+      - name: plus_minus_points
+        description: Team plus-minus points.
+        data_type: INT64
+      - name: num_minutes
+        description: Team minutes played.
+        data_type: FLOAT64
+      - name: q1_points
+        description: Team first-quarter points.
+        data_type: INT64
+      - name: q2_points
+        description: Team second-quarter points.
+        data_type: INT64
+      - name: q3_points
+        description: Team third-quarter points.
+        data_type: INT64
+      - name: q4_points
+        description: Team fourth-quarter points.
+        data_type: INT64
+      - name: bench_points
+        description: Team bench points.
+        data_type: INT64
+      - name: biggest_lead
+        description: Team biggest lead.
+        data_type: INT64
+      - name: biggest_scoring_run
+        description: Team biggest scoring run.
+        data_type: INT64
+      - name: lead_changes
+        description: Game lead changes.
+        data_type: INT64
+      - name: points_fast_break
+        description: Team fast-break points.
+        data_type: INT64
+      - name: points_from_turnovers
+        description: Team points from turnovers.
+        data_type: INT64
+      - name: points_in_the_paint
+        description: Team points in the paint.
+        data_type: INT64
+      - name: points_second_chance
+        description: Team second-chance points.
+        data_type: INT64
+      - name: times_tied
+        description: Number of times the game was tied.
+        data_type: INT64
+      - name: timeouts_remaining
+        description: Team timeouts remaining.
+        data_type: INT64
+      - name: season_wins
+        description: Team season wins at game time.
+        data_type: INT64
+      - name: season_losses
+        description: Team season losses at game time.
+        data_type: INT64
+      - name: coach_id
+        description: Coach identifier.
+        data_type: STRING
+      - name: game_type
+        description: Game type from the source.
+        data_type: STRING
+      - name: game_label
+        description: Game label from the source.
+        data_type: STRING
+      - name: game_sub_label
+        description: Game sublabel from the source.
+        data_type: STRING
+      - name: series_game_number
+        description: Playoff series game number, when applicable.
+        data_type: FLOAT64
+      - name: seed
+        description: Team playoff seed, when applicable.
+        data_type: INT64
+      - name: rebounds_team
+        description: Team rebounds credited separately from player rebounds.
+        data_type: INT64
+      - name: turnovers_team
+        description: Team turnovers credited separately from player turnovers.
+        data_type: INT64
+      - name: ot1_points
+        description: Team first-overtime points.
+        data_type: INT64
+      - name: ot2_points
+        description: Team second-overtime points.
+        data_type: INT64
+      - name: ot_all_points
+        description: Team total overtime points.
+        data_type: INT64
+      - name: game_date
+        description: Game date timestamp from the source.
+        data_type: TIMESTAMP

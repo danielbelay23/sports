@@ -7,7 +7,7 @@ profile: "sports"
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
+# found in the "models/" directory.
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
@@ -15,20 +15,18 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-target-path: "target" # directory which will store compiled SQL files
-clean-targets: # directories to be removed by `dbt clean`
+target-path: "target"
+
+clean-targets:
   - "target"
   - "dbt_packages"
 
+vars:
+  enable_nba_contracts: false
+  dbt_osmosis_default_path: "{model}.yml"
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In dbt, the default materialization for a model is a view. This means, when you run
-# dbt run or dbt build, all of your models will be built as a view in your data platform.
-# The configuration below will override this setting for models in the example folder to
-# instead be materialized as tables. Any models you add to the root of the models folder will
-# continue to be built as views. These settings can be overridden in the individual model files
-# using the `{{ config(...) }}` macro.
 
 models:
   sports:
@@ -37,18 +35,27 @@ models:
       columns: true
 
     +materialized: view
+    +static_analysis: strict
 
     staging:
       nba:
         kaggle:
           +schema: kaggle
           +materialized: table
+
         elo:
           +schema: elo
           +materialized: table
+
         betting:
           +schema: betting
           +materialized: table
+
+        contracts:
+          +schema: contracts
+          +materialized: table
+          +enabled: "{{ var('enable_nba_contracts', false) }}"
+
         custom:
           +schema: custom
           +materialized: table
@@ -57,9 +64,16 @@ models:
       nba:
         kaggle:
           +schema: kaggle
+
         elo:
           +schema: elo
+
         betting:
           +schema: betting
+
+        contracts:
+          +schema: contracts
+          +enabled: "{{ var('enable_nba_contracts', false) }}"
+
         custom:
           +schema: custom

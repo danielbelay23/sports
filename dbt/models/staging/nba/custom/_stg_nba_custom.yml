@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: stg_nba_custom_betting_final
+    description: "Playoff game-level staging model that combines game outcomes with averaged moneyline odds and implied win probabilities."
+    columns:
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: home_team_id
+        description: "NBA team identifier for the home team."
+      - name: away_team_id
+        description: "NBA team identifier for the away team."
+      - name: game_date
+        description: "Date the game was played."
+      - name: matchup
+        description: "Game matchup label."
+      - name: season_year
+        description: "NBA season year associated with the game."
+      - name: season_type
+        description: "Season phase, filtered to playoff games in this model."
+      - name: season
+        description: "Source season label."
+      - name: home_wl
+        description: "Win/loss result for the home team."
+      - name: away_wl
+        description: "Win/loss result for the away team."
+      - name: implied_win_prob_home
+        description: "Average implied win probability for the home team derived from moneyline prices."
+      - name: implied_win_prob_away
+        description: "Average implied win probability for the away team derived from moneyline prices."
+      - name: avg_money_line_price_home
+        description: "Average home-team moneyline price across sportsbooks."
+      - name: avg_money_line_price_away
+        description: "Average away-team moneyline price across sportsbooks."

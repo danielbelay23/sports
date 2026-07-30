@@ -1,0 +1,258 @@
+version: 2
+
+models:
+  - name: stg_nba_betting_games_all
+    description: "One row per NBA game with home and away team outcomes from the odds raw games feed."
+    columns:
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: game_date
+        description: "Date the game was played."
+      - name: matchup
+        description: "Game matchup label from the source feed."
+      - name: home_team_id
+        description: "NBA team identifier for the home team."
+      - name: away_team_id
+        description: "NBA team identifier for the away team."
+      - name: season_year
+        description: "NBA season year associated with the game."
+      - name: season_type
+        description: "Season phase, such as regular season or playoffs."
+      - name: season
+        description: "Source season label."
+      - name: home_pts
+        description: "Points scored by the home team."
+      - name: away_pts
+        description: "Points scored by the away team."
+      - name: home_wl
+        description: "Win/loss result for the home team."
+      - name: away_wl
+        description: "Win/loss result for the away team."
+
+  - name: stg_nba_betting_money_line
+    description: "Cleaned moneyline odds by game, sportsbook, team, and opposing team."
+    columns:
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: book_name
+        description: "Sportsbook name providing the odds."
+      - name: book_id
+        description: "Sportsbook identifier."
+      - name: team_id
+        description: "NBA team identifier for the listed team."
+      - name: a_team_id
+        description: "NBA team identifier for the opposing team."
+      - name: price1
+        description: "Moneyline price for the listed team."
+      - name: price2
+        description: "Moneyline price for the opposing team."
+
+  - name: stg_nba_betting_players_all
+    description: "Cleaned NBA player profile attributes from the betting raw player feed."
+    columns:
+      - name: person_id
+        description: "Unique NBA person identifier for the player."
+      - name: display_last_comma_first
+        description: "Player display name formatted as last name, first name."
+      - name: display_first_last
+        description: "Player display name formatted as first name last name."
+      - name: rosterstatus
+        description: "Boolean flag indicating whether the player is on a roster."
+      - name: from_year
+        description: "First NBA season year for the player."
+      - name: to_year
+        description: "Most recent or final NBA season year for the player."
+      - name: playercode
+        description: "Source player code."
+      - name: games_played_flag
+        description: "Flag indicating whether the player has appeared in NBA games."
+      - name: position
+        description: "Listed player position."
+      - name: draft_year
+        description: "NBA draft year."
+      - name: draft_round
+        description: "NBA draft round."
+      - name: draft_num
+        description: "NBA draft pick number."
+      - name: birth_date
+        description: "Player birth date as provided by the source."
+      - name: height_feet
+        description: "Player height feet component."
+      - name: height_inches
+        description: "Player height inches component."
+      - name: height
+        description: "Player height value from the source."
+      - name: weight
+        description: "Player listed weight."
+      - name: season_exp
+        description: "Player NBA season experience."
+      - name: jersey
+        description: "Player jersey number."
+      - name: school
+        description: "Player school or college."
+      - name: country
+        description: "Player country."
+      - name: last_affiliation
+        description: "Player last listed affiliation."
+
+  - name: stg_nba_betting_players_game_stats
+    description: "Cleaned player box-score statistics by NBA game from the betting raw feed."
+    columns:
+      - name: season_id
+        description: "Source season identifier."
+      - name: player_id
+        description: "Unique NBA player identifier."
+      - name: player_name
+        description: "Player name."
+      - name: team_id
+        description: "NBA team identifier."
+      - name: team_abbreviation
+        description: "NBA team abbreviation."
+      - name: team_name
+        description: "NBA team name."
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: game_date
+        description: "Date the game was played."
+      - name: matchup
+        description: "Game matchup label."
+      - name: wl
+        description: "Player team win/loss result."
+      - name: min
+        description: "Minutes played."
+      - name: fgm
+        description: "Field goals made."
+      - name: fga
+        description: "Field goals attempted."
+      - name: fg_pct
+        description: "Field goal percentage."
+      - name: fg3m
+        description: "Three-point field goals made."
+      - name: fg3a
+        description: "Three-point field goals attempted."
+      - name: fg3_pct
+        description: "Three-point field goal percentage."
+      - name: ftm
+        description: "Free throws made."
+      - name: fta
+        description: "Free throws attempted."
+      - name: ft_pct
+        description: "Free throw percentage."
+      - name: oreb
+        description: "Offensive rebounds."
+      - name: dreb
+        description: "Defensive rebounds."
+      - name: reb
+        description: "Total rebounds."
+      - name: ast
+        description: "Assists."
+      - name: stl
+        description: "Steals."
+      - name: blk
+        description: "Blocks."
+      - name: tov
+        description: "Turnovers."
+      - name: pf
+        description: "Personal fouls."
+      - name: pts
+        description: "Points scored."
+      - name: plus_minus
+        description: "Plus-minus while the player was on the court."
+      - name: season_type
+        description: "Season phase, such as regular season or playoffs."
+      - name: season_year
+        description: "NBA season year."
+      - name: season
+        description: "Source season label."
+
+  - name: stg_nba_betting_series_odds
+    description: "Cleaned playoff series odds, participants, seeds, winners, and outcomes."
+    columns:
+      - name: year
+        description: "Playoff year."
+      - name: conference
+        description: "NBA conference for the playoff series."
+      - name: round
+        description: "Playoff round."
+      - name: home_team
+        description: "Home or higher-listed team name for the series."
+      - name: home_seed
+        description: "Seed for the home or higher-listed team."
+      - name: home_odds
+        description: "Series odds for the home or higher-listed team."
+      - name: away_team
+        description: "Away or lower-listed team name for the series."
+      - name: away_seed
+        description: "Seed for the away or lower-listed team."
+      - name: away_odds
+        description: "Series odds for the away or lower-listed team."
+      - name: winner
+        description: "Series winner team name."
+      - name: series_score
+        description: "Final series score."
+      - name: games_in_series
+        description: "Number of games played in the series."
+      - name: home_id
+        description: "NBA team identifier for the home or higher-listed team."
+      - name: away_id
+        description: "NBA team identifier for the away or lower-listed team."
+      - name: winner_id
+        description: "NBA team identifier for the series winner."
+
+  - name: stg_nba_betting_spread
+    description: "Cleaned point-spread odds by game, sportsbook, team, and opposing team."
+    columns:
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: book_name
+        description: "Sportsbook name providing the odds."
+      - name: book_id
+        description: "Sportsbook identifier."
+      - name: team_id
+        description: "NBA team identifier for the listed team."
+      - name: a_team_id
+        description: "NBA team identifier for the opposing team."
+      - name: spread1
+        description: "Point spread for the listed team."
+      - name: spread2
+        description: "Point spread for the opposing team."
+      - name: price1
+        description: "Odds price for the listed team spread."
+      - name: price2
+        description: "Odds price for the opposing team spread."
+
+  - name: stg_nba_betting_teams_all
+    description: "Cleaned NBA team identifiers, abbreviations, and active-year range from the betting raw feed."
+    columns:
+      - name: league_id
+        description: "NBA league identifier."
+      - name: team_id
+        description: "NBA team identifier."
+      - name: min_year
+        description: "First active season year in the source feed."
+      - name: max_year
+        description: "Last active season year in the source feed."
+      - name: abbreviation
+        description: "NBA team abbreviation."
+
+  - name: stg_nba_betting_totals
+    description: "Cleaned game-total odds by game, sportsbook, team, and opposing team."
+    columns:
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: book_name
+        description: "Sportsbook name providing the odds."
+      - name: book_id
+        description: "Sportsbook identifier."
+      - name: team_id
+        description: "NBA team identifier for the listed team."
+      - name: a_team_id
+        description: "NBA team identifier for the opposing team."
+      - name: total1
+        description: "Game total value for the listed team side."
+      - name: total2
+        description: "Game total value for the opposing team side."
+      - name: price1
+        description: "Odds price for the listed team total."
+      - name: price2
+        description: "Odds price for the opposing team total."

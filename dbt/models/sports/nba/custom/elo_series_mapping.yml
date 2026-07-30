@@ -1,0 +1,63 @@
+version: 2
+models:
+  - name: elo_series_mapping
+    columns:
+      - name: person_id
+        description: Unique NBA person identifier for the player.
+        data_type: INT64
+      - name: first_name
+        description: Player first name.
+        data_type: STRING
+      - name: last_name
+        description: Player last name.
+        data_type: STRING
+      - name: year_id
+        data_type: INT64
+      - name: series_id
+        data_type: STRING
+      - name: player_team_id
+        description: NBA team identifier for the player team.
+        data_type: INT64
+      - name: opponent_team_id
+        description: NBA team identifier for the opponent team.
+        data_type: INT64
+      - name: series_minutes_per_game
+        data_type: FLOAT64
+      - name: series_start_date
+        data_type: DATE
+      - name: series_end_date
+        data_type: DATE
+      - name: player_series_games_played
+        data_type: INT64
+      - name: series_minutes
+        data_type: FLOAT64
+      - name: series_points
+        data_type: INT64
+      - name: series_assists
+        data_type: INT64
+      - name: series_rebounds_total
+        data_type: INT64
+      - name: series_blocks
+        data_type: INT64
+      - name: series_steals
+        data_type: INT64
+      - name: series_field_goals_attempted
+        data_type: INT64
+      - name: series_field_goals_made
+        data_type: INT64
+      - name: series_field_goals_percentage
+        data_type: FLOAT64
+      - name: series_turnovers
+        data_type: INT64
+      - name: actual_win
+        data_type: INT64
+      - name: expected_win_prob
+        data_type: FLOAT64
+      - name: expected_money_line
+        data_type: FLOAT64
+      - name: series_residual
+        data_type: FLOAT64
+      - name: series_sum_game_residual
+        data_type: FLOAT64
+      - name: avg_player_game_forecast
+        data_type: FLOAT64

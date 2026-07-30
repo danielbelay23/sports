@@ -1,0 +1,35 @@
+version: 2
+
+sources:
+  - name: nba_contracts
+    database: belayground-467323
+    schema: nba_contracts
+    description: Raw weekly snapshots loaded by the NBA contracts Cloud Run Job.
+    config:
+      enabled: "{{ var('enable_nba_contracts', false) }}"
+      loaded_at_field: scraped_at
+      freshness: null
+        # warn_after: {count: 8, period: day}
+        # error_after: {count: 15, period: day}
+    tables:
+      - name: contract_snapshots
+        description: Long-format, date-partitioned contract snapshot history.
+        columns:
+          - name: snapshot_date
+            data_tests:
+              - not_null
+          - name: scraped_at
+            data_tests:
+              - not_null
+          - name: team_code
+            data_tests:
+              - not_null
+          - name: player_name
+            data_tests:
+              - not_null
+          - name: season_label
+            data_tests:
+              - not_null
+          - name: salary_raw
+            data_tests:
+              - not_null

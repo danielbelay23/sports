@@ -1,0 +1,76 @@
+version: 2
+models:
+  - name: nba_elo_playoff_games
+    columns:
+      - name: game_id
+        description: Unique Elo game identifier.
+        data_type: STRING
+      - name: date_game
+        description: Date the playoff game was played.
+        data_type: DATE
+      - name: season
+        description: NBA season year.
+        data_type: INT64
+      - name: is_playoff
+        description: Flag indicating whether the game was a playoff game.
+        data_type: INT64
+      - name: neutral
+        description: Flag indicating whether the game was played at a neutral site.
+        data_type: INT64
+      - name: team_id
+        description: Elo franchise identifier for the home/listed team.
+        data_type: STRING
+      - name: opp_id
+        description: Elo franchise identifier for the opposing team.
+        data_type: STRING
+      - name: home_pts
+        description: Points scored by the home team.
+        data_type: INT64
+      - name: away_pts
+        description: Points scored by the away team.
+        data_type: INT64
+      - name: mov
+        description: Margin of victory from the home-team perspective.
+        data_type: INT64
+      - name: home_win
+        description: Flag indicating whether the home team won.
+        data_type: INT64
+      - name: elo_home_reg_pre
+        description: Home-team regular-season Elo rating before the game.
+        data_type: FLOAT64
+      - name: elo_away_reg_pre
+        description: Away-team regular-season Elo rating before the game.
+        data_type: FLOAT64
+      - name: elo_home_po_pre
+        description: Home-team playoff Elo rating before the game.
+        data_type: FLOAT64
+      - name: elo_away_po_pre
+        description: Away-team playoff Elo rating before the game.
+        data_type: FLOAT64
+      - name: p_home_reg
+        description: Pregame home win probability from the regular-season Elo model.
+        data_type: FLOAT64
+      - name: p_home_po
+        description: Pregame home win probability from the playoff Elo model.
+        data_type: FLOAT64
+      - name: p_home_used
+        description: Pregame home win probability used for the game.
+        data_type: FLOAT64
+      - name: delta_reg
+        description: Regular-season Elo rating delta from the game.
+        data_type: FLOAT64
+      - name: delta_po
+        description: Playoff Elo rating delta from the game.
+        data_type: FLOAT64
+      - name: elo_home_reg_post
+        description: Home-team regular-season Elo rating after the game.
+        data_type: FLOAT64
+      - name: elo_away_reg_post
+        description: Away-team regular-season Elo rating after the game.
+        data_type: FLOAT64
+      - name: elo_home_po_post
+        description: Home-team playoff Elo rating after the game.
+        data_type: FLOAT64
+      - name: elo_away_po_post
+        description: Away-team playoff Elo rating after the game.
+        data_type: FLOAT64

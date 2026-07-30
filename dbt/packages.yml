@@ -3,3 +3,6 @@ packages:
     version: 1.1.1
   - package: dbt-labs/codegen
     version: 0.13.1
+  # codegen docs: https://hub.getdbt.com/dbt-labs/codegen/latest/
+  # codegen git: https://github.com/dbt-labs/dbt-codegen
+  # if you are looking for dbt-osmosis, its in requirements.txt as dbt-osmosis==1.4.0

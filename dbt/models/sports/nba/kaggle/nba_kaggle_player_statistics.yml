@@ -1,0 +1,126 @@
+version: 2
+models:
+  - name: nba_kaggle_player_statistics
+    columns:
+      - name: first_name
+        description: Player first name.
+        data_type: STRING
+      - name: last_name
+        description: Player last name.
+        data_type: STRING
+      - name: person_id
+        description: Unique NBA person identifier for the player.
+        data_type: INT64
+      - name: game_id
+        description: Unique identifier for the NBA game.
+        data_type: INT64
+      - name: game_date_time_est
+        description: Game date and time in Eastern time.
+        data_type: TIMESTAMP
+      - name: player_team_city
+        description: Player team city.
+        data_type: STRING
+      - name: player_team_name
+        description: Player team nickname.
+        data_type: STRING
+      - name: opponent_team_city
+        description: Opponent team city.
+        data_type: STRING
+      - name: opponent_team_name
+        description: Opponent team nickname.
+        data_type: STRING
+      - name: game_type
+        description: Game type from the source.
+        data_type: STRING
+      - name: series_id
+        data_type: STRING
+      - name: game_label
+        description: Game label from the source.
+        data_type: STRING
+      - name: series_game_number
+        description: Playoff series game number, when applicable.
+        data_type: FLOAT64
+      - name: game_sub_label
+        description: Game sublabel from the source.
+        data_type: STRING
+      - name: win
+        description: Flag indicating whether the player team won.
+        data_type: INT64
+      - name: home
+        description: Flag indicating whether the player team was home.
+        data_type: INT64
+      - name: num_minutes
+        description: Minutes played.
+        data_type: FLOAT64
+      - name: points
+        description: Points scored.
+        data_type: INT64
+      - name: assists
+        description: Assists.
+        data_type: INT64
+      - name: blocks
+        description: Blocks.
+        data_type: INT64
+      - name: steals
+        description: Steals.
+        data_type: INT64
+      - name: field_goals_attempted
+        description: Field goals attempted.
+        data_type: INT64
+      - name: field_goals_made
+        description: Field goals made.
+        data_type: INT64
+      - name: field_goals_percentage
+        description: Field goal percentage.
+        data_type: FLOAT64
+      - name: three_pointers_attempted
+        description: Three-point field goals attempted.
+        data_type: INT64
+      - name: three_pointers_made
+        description: Three-point field goals made.
+        data_type: INT64
+      - name: three_pointers_percentage
+        description: Three-point field goal percentage.
+        data_type: FLOAT64
+      - name: free_throws_attempted
+        description: Free throws attempted.
+        data_type: INT64
+      - name: free_throws_made
+        description: Free throws made.
+        data_type: INT64
+      - name: free_throws_percentage
+        description: Free throw percentage.
+        data_type: FLOAT64
+      - name: rebounds_defensive
+        description: Defensive rebounds.
+        data_type: INT64
+      - name: rebounds_offensive
+        description: Offensive rebounds.
+        data_type: INT64
+      - name: rebounds_total
+        description: Total rebounds.
+        data_type: INT64
+      - name: fouls_personal
+        description: Personal fouls.
+        data_type: INT64
+      - name: turnovers
+        description: Turnovers.
+        data_type: INT64
+      - name: plus_minus_points
+        description: Plus-minus points.
+        data_type: INT64
+      - name: player_team_id
+        description: NBA team identifier for the player team.
+        data_type: INT64
+      - name: opponent_team_id
+        description: NBA team identifier for the opponent team.
+        data_type: INT64
+      - name: comment
+        description: Source comment for the player game row.
+        data_type: STRING
+      - name: starting_position
+        description: Player starting position.
+        data_type: STRING
+      - name: game_date
+        description: Game date from the source.
+        data_type: DATE
