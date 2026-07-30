@@ -1,0 +1,64 @@
+version: 2
+models:
+  - name: nba_kaggle_players
+    columns:
+      - name: person_id
+        description: Unique NBA person identifier for the player.
+        data_type: INT64
+      - name: first_name
+        description: Player first name.
+        data_type: STRING
+      - name: last_name
+        description: Player last name.
+        data_type: STRING
+      - name: birth_date
+        description: Player birth date.
+        data_type: DATE
+      - name: school
+        description: Player school or college.
+        data_type: STRING
+      - name: country
+        description: Player country.
+        data_type: STRING
+      - name: height_inches
+        description: Player height in inches.
+        data_type: INT64
+      - name: body_weight_lbs
+        description: Player body weight in pounds.
+        data_type: INT64
+      - name: jersey
+        description: Player jersey number.
+        data_type: STRING
+      - name: guard
+        description: Flag indicating guard position eligibility.
+        data_type: INT64
+      - name: forward
+        description: Flag indicating forward position eligibility.
+        data_type: INT64
+      - name: center
+        description: Flag indicating center position eligibility.
+        data_type: INT64
+      - name: dleague_flag
+        description: Flag indicating D-League or G-League association.
+        data_type: INT64
+      - name: nba_flag
+        description: Flag indicating NBA association.
+        data_type: INT64
+      - name: games_played_flag
+        description: Flag indicating whether the player has appeared in games.
+        data_type: INT64
+      - name: draft_year
+        description: NBA draft year.
+        data_type: INT64
+      - name: draft_round
+        description: NBA draft round.
+        data_type: INT64
+      - name: draft_number
+        description: NBA draft pick number.
+        data_type: INT64
+      - name: from_year
+        description: First NBA season year for the player.
+        data_type: INT64
+      - name: to_year
+        description: Most recent or final NBA season year for the player.
+        data_type: INT64

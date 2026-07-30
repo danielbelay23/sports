@@ -1,0 +1,53 @@
+version: 2
+models:
+  - name: nba_betting_series_odds
+    columns:
+      - name: year
+        description: Playoff year.
+        data_type: INT64
+      - name: conference
+        description: NBA conference for the playoff series.
+        data_type: STRING
+      - name: round
+        description: Playoff round.
+        data_type: STRING
+      - name: home_team
+        description: Home or higher-listed team name for the series.
+        data_type: STRING
+      - name: home_seed
+        description: Seed for the home or higher-listed team.
+        data_type: INT64
+      - name: home_odds
+        description: Series odds for the home or higher-listed team.
+        data_type: FLOAT64
+      - name: away_team
+        description: Away or lower-listed team name for the series.
+        data_type: STRING
+      - name: away_seed
+        description: Seed for the away or lower-listed team.
+        data_type: INT64
+      - name: away_odds
+        description: Series odds for the away or lower-listed team.
+        data_type: FLOAT64
+      - name: winner
+        description: Series winner team name.
+        data_type: STRING
+      - name: series_score
+        description: Final series score.
+        data_type: STRING
+      - name: games_in_series
+        description: Number of games played in the series.
+        data_type: INT64
+      - name: home_id
+        description: NBA team identifier for the home or higher-listed team.
+        data_type: INT64
+      - name: away_id
+        description: NBA team identifier for the away or lower-listed team.
+        data_type: INT64
+      - name: winner_id
+        description: NBA team identifier for the series winner.
+        data_type: INT64
+      - name: home_implied_probability
+        data_type: FLOAT64
+      - name: away_implied_probability
+        data_type: FLOAT64

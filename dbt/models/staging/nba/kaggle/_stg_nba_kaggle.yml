@@ -1,0 +1,910 @@
+version: 2
+
+models:
+  - name: stg_nba_kaggle_games
+    description: "Cleaned NBA game schedule and result records from the Kaggle NBA source."
+    columns:
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: game_date_time_est
+        description: "Game date and time in Eastern time."
+      - name: home_team_city
+        description: "Home team city."
+      - name: home_team_name
+        description: "Home team nickname."
+      - name: home_team_id
+        description: "NBA team identifier for the home team."
+      - name: away_team_city
+        description: "Away team city."
+      - name: away_team_name
+        description: "Away team nickname."
+      - name: away_team_id
+        description: "NBA team identifier for the away team."
+      - name: home_score
+        description: "Home team score."
+      - name: away_score
+        description: "Away team score."
+      - name: winner
+        description: "NBA team identifier or source winner value for the winning team."
+      - name: game_type
+        description: "Game type from the source."
+      - name: game_subtype
+        description: "Game subtype from the source."
+      - name: game_label
+        description: "Game label from the source."
+      - name: game_sublabel
+        description: "Game sublabel from the source."
+      - name: series_game_number
+        description: "Playoff series game number, when applicable."
+      - name: attendance
+        description: "Reported game attendance."
+      - name: arena_id
+        description: "Arena identifier."
+      - name: arena_name
+        description: "Arena name."
+      - name: arena_city
+        description: "Arena city."
+      - name: arena_state
+        description: "Arena state."
+      - name: officials
+        description: "Game officials listed by the source."
+      - name: game_date
+        description: "Game date timestamp from the source."
+
+  - name: stg_nba_kaggle_play_by_play
+    description: "Cleaned NBA play-by-play events with action, score, player, team, shot, foul, rebound, and substitution details."
+    columns:
+      - name: clock
+        description: "Game clock at the event."
+      - name: action_type
+        description: "Primary event action type."
+      - name: description
+        description: "Text description of the event."
+      - name: player_full_name
+        description: "Full name of the primary player involved."
+      - name: team_tricode
+        description: "Team tricode for the event."
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: game_date_time_est
+        description: "Game date and time in Eastern time."
+      - name: period_type
+        description: "Period type, such as quarter or overtime."
+      - name: period
+        description: "Game period number."
+      - name: short_formatted_clock
+        description: "Short formatted game clock."
+      - name: time_actual
+        description: "Actual timestamp of the event."
+      - name: action_number
+        description: "Source action sequence number."
+      - name: order_number
+        description: "Source ordering number for the event."
+      - name: action_id
+        description: "Source action identifier."
+      - name: team_id
+        description: "NBA team identifier for the event team."
+      - name: side
+        description: "Court side or possession side from the source."
+      - name: location
+        description: "Event location label from the source."
+      - name: player_team_city
+        description: "Player team city."
+      - name: player_team_name
+        description: "Player team nickname."
+      - name: opponent_team_city
+        description: "Opponent team city."
+      - name: opponent_team_name
+        description: "Opponent team nickname."
+      - name: score_home
+        description: "Home score after or at the event."
+      - name: score_away
+        description: "Away score after or at the event."
+      - name: possession
+        description: "Possession indicator from the source."
+      - name: is_target_score_last_period
+        description: "Flag for target-score final-period context."
+      - name: sub_type
+        description: "Event subtype."
+      - name: descriptor
+        description: "Additional event descriptor."
+      - name: qualifiers
+        description: "Array of event qualifier values."
+      - name: edited
+        description: "Source edited flag or timestamp."
+      - name: value
+        description: "Source event value."
+      - name: person_id
+        description: "NBA person identifier for the primary player."
+      - name: player_name
+        description: "Primary player display name."
+      - name: player_name_initial
+        description: "Primary player abbreviated name."
+      - name: jersey_number
+        description: "Primary player jersey number."
+      - name: x
+        description: "Event x coordinate."
+      - name: y
+        description: "Event y coordinate."
+      - name: x_legacy
+        description: "Legacy event x coordinate."
+      - name: y_legacy
+        description: "Legacy event y coordinate."
+      - name: area
+        description: "Court area for the event."
+      - name: area_detail
+        description: "Detailed court area for the event."
+      - name: is_field_goal
+        description: "Flag indicating whether the event is a field goal attempt."
+      - name: shot_distance
+        description: "Shot distance."
+      - name: shot_value
+        description: "Point value of the shot attempt."
+      - name: shot_result
+        description: "Shot result."
+      - name: points_total
+        description: "Total points credited on the event."
+      - name: shot_action_number
+        description: "Action number for the associated shot."
+      - name: assist_person_id
+        description: "NBA person identifier for the assisting player."
+      - name: assist_full_name
+        description: "Full name of the assisting player."
+      - name: assist_player_name
+        description: "Display name of the assisting player."
+      - name: assist_player_name_initial
+        description: "Abbreviated name of the assisting player."
+      - name: assist_total
+        description: "Assist total after the event."
+      - name: rebound_total
+        description: "Rebound total after the event."
+      - name: rebound_defensive_total
+        description: "Defensive rebound total after the event."
+      - name: rebound_offensive_total
+        description: "Offensive rebound total after the event."
+      - name: turnover_total
+        description: "Turnover total after the event."
+      - name: steal_person_id
+        description: "NBA person identifier for the stealing player."
+      - name: steal_full_name
+        description: "Full name of the stealing player."
+      - name: steal_player_name
+        description: "Display name of the stealing player."
+      - name: steal_total
+        description: "Steal total after the event."
+      - name: foul_personal_total
+        description: "Personal foul total after the event."
+      - name: foul_technical_total
+        description: "Technical foul total after the event."
+      - name: foul_drawn_person_id
+        description: "NBA person identifier for the player who drew the foul."
+      - name: foul_drawn_full_name
+        description: "Full name of the player who drew the foul."
+      - name: foul_drawn_player_name
+        description: "Display name of the player who drew the foul."
+      - name: block_person_id
+        description: "NBA person identifier for the blocking player."
+      - name: block_full_name
+        description: "Full name of the blocking player."
+      - name: block_player_name
+        description: "Display name of the blocking player."
+      - name: block_total
+        description: "Block total after the event."
+      - name: jump_ball_recovered_name
+        description: "Name of the player who recovered the jump ball."
+      - name: jump_ball_recovered_person_id
+        description: "NBA person identifier for the player who recovered the jump ball."
+      - name: jump_ball_recovered_full_name
+        description: "Full name of the player who recovered the jump ball."
+      - name: jump_ball_won_person_id
+        description: "NBA person identifier for the player who won the jump ball."
+      - name: jump_ball_won_full_name
+        description: "Full name of the player who won the jump ball."
+      - name: jump_ball_won_player_name
+        description: "Display name of the player who won the jump ball."
+      - name: jump_ball_lost_person_id
+        description: "NBA person identifier for the player who lost the jump ball."
+      - name: jump_ball_lost_full_name
+        description: "Full name of the player who lost the jump ball."
+      - name: jump_ball_lost_player_name
+        description: "Display name of the player who lost the jump ball."
+      - name: subs_in_person_id
+        description: "NBA person identifier for the player subbed in."
+      - name: subs_in_full_name
+        description: "Full name of the player subbed in."
+      - name: subs_in_player_name
+        description: "Display name of the player subbed in."
+      - name: official_id
+        description: "Official identifier associated with the event."
+      - name: video_available
+        description: "Flag indicating whether video is available."
+      - name: person_ids_filter
+        description: "Array of person identifiers associated with the event."
+      - name: game_type
+        description: "Game type from the source."
+      - name: player_team_id
+        description: "NBA team identifier for the player team."
+      - name: opponent_team_id
+        description: "NBA team identifier for the opponent team."
+      - name: jump_ball_recoverd_person_id
+        description: "Source misspelled recovered-person identifier for jump ball events."
+      - name: game_date_time_est_g
+        description: "Game-level Eastern timestamp from the source."
+      - name: game_type_g
+        description: "Game-level type from the source."
+
+  - name: stg_nba_kaggle_players
+    description: "Cleaned NBA player bio, physical profile, position flags, and draft attributes from the Kaggle NBA source."
+    columns:
+      - name: person_id
+        description: "Unique NBA person identifier for the player."
+      - name: first_name
+        description: "Player first name."
+      - name: last_name
+        description: "Player last name."
+      - name: birth_date
+        description: "Player birth date."
+      - name: school
+        description: "Player school or college."
+      - name: country
+        description: "Player country."
+      - name: height_inches
+        description: "Player height in inches."
+      - name: body_weight_lbs
+        description: "Player body weight in pounds."
+      - name: jersey
+        description: "Player jersey number."
+      - name: guard
+        description: "Flag indicating guard position eligibility."
+      - name: forward
+        description: "Flag indicating forward position eligibility."
+      - name: center
+        description: "Flag indicating center position eligibility."
+      - name: dleague_flag
+        description: "Flag indicating D-League or G-League association."
+      - name: nba_flag
+        description: "Flag indicating NBA association."
+      - name: games_played_flag
+        description: "Flag indicating whether the player has appeared in games."
+      - name: draft_year
+        description: "NBA draft year."
+      - name: draft_round
+        description: "NBA draft round."
+      - name: draft_number
+        description: "NBA draft pick number."
+      - name: from_year
+        description: "First NBA season year for the player."
+      - name: to_year
+        description: "Most recent or final NBA season year for the player."
+
+  - name: stg_nba_kaggle_team_histories
+    description: "Cleaned NBA team history records filtered to NBA teams."
+    columns:
+      - name: team_id
+        description: "NBA team identifier."
+      - name: team_city
+        description: "Team city."
+      - name: team_name
+        description: "Team nickname."
+      - name: team_abbrev
+        description: "Team abbreviation."
+      - name: season_founded
+        description: "First active season for the team identity."
+      - name: season_active_till
+        description: "Last active season for the team identity."
+      - name: league
+        description: "League for the team history record."
+
+  - name: stg_nba_kaggle_player_statistics
+    description: "Cleaned player game statistics with team identifiers backfilled from team history when source IDs are missing."
+    columns:
+      - name: first_name
+        description: "Player first name."
+      - name: last_name
+        description: "Player last name."
+      - name: person_id
+        description: "Unique NBA person identifier for the player."
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: game_date_time_est
+        description: "Game date and time in Eastern time."
+      - name: player_team_city
+        description: "Player team city."
+      - name: player_team_name
+        description: "Player team nickname."
+      - name: opponent_team_city
+        description: "Opponent team city."
+      - name: opponent_team_name
+        description: "Opponent team nickname."
+      - name: game_type
+        description: "Game type from the source."
+      - name: game_label
+        description: "Game label from the source."
+      - name: series_game_number
+        description: "Playoff series game number, when applicable."
+      - name: game_sub_label
+        description: "Game sublabel from the source."
+      - name: win
+        description: "Flag indicating whether the player team won."
+      - name: home
+        description: "Flag indicating whether the player team was home."
+      - name: num_minutes
+        description: "Minutes played."
+      - name: points
+        description: "Points scored."
+      - name: assists
+        description: "Assists."
+      - name: blocks
+        description: "Blocks."
+      - name: steals
+        description: "Steals."
+      - name: field_goals_attempted
+        description: "Field goals attempted."
+      - name: field_goals_made
+        description: "Field goals made."
+      - name: field_goals_percentage
+        description: "Field goal percentage."
+      - name: three_pointers_attempted
+        description: "Three-point field goals attempted."
+      - name: three_pointers_made
+        description: "Three-point field goals made."
+      - name: three_pointers_percentage
+        description: "Three-point field goal percentage."
+      - name: free_throws_attempted
+        description: "Free throws attempted."
+      - name: free_throws_made
+        description: "Free throws made."
+      - name: free_throws_percentage
+        description: "Free throw percentage."
+      - name: rebounds_defensive
+        description: "Defensive rebounds."
+      - name: rebounds_offensive
+        description: "Offensive rebounds."
+      - name: rebounds_total
+        description: "Total rebounds."
+      - name: fouls_personal
+        description: "Personal fouls."
+      - name: turnovers
+        description: "Turnovers."
+      - name: plus_minus_points
+        description: "Plus-minus points."
+      - name: player_team_id
+        description: "NBA team identifier for the player team."
+      - name: opponent_team_id
+        description: "NBA team identifier for the opponent team."
+      - name: comment
+        description: "Source comment for the player game row."
+      - name: starting_position
+        description: "Player starting position."
+      - name: game_date
+        description: "Game date from the source."
+
+  - name: stg_nba_kaggle_player_statistics_extended
+    description: "Cleaned extended player game statistics, including traditional box-score, advanced, pace, possession, scoring-location, and assisted-shot metrics."
+    columns:
+      - name: first_name
+        description: "Player first name."
+      - name: last_name
+        description: "Player last name."
+      - name: person_id
+        description: "Unique NBA person identifier for the player."
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: game_date_time_est
+        description: "Game date and time in Eastern time."
+      - name: game_type
+        description: "Game type from the source."
+      - name: game_label
+        description: "Game label from the source."
+      - name: series_game_number
+        description: "Playoff series game number, when applicable."
+      - name: game_sub_label
+        description: "Game sublabel from the source."
+      - name: win
+        description: "Flag indicating whether the player team won."
+      - name: home
+        description: "Flag indicating whether the player team was home."
+      - name: player_team_id
+        description: "NBA team identifier for the player team."
+      - name: player_team_city
+        description: "Player team city."
+      - name: player_team_name
+        description: "Player team nickname."
+      - name: opponent_team_id
+        description: "NBA team identifier for the opponent team."
+      - name: opponent_team_city
+        description: "Opponent team city."
+      - name: opponent_team_name
+        description: "Opponent team nickname."
+      - name: comment
+        description: "Source comment for the player game row."
+      - name: starting_position
+        description: "Player starting position."
+      - name: num_minutes
+        description: "Minutes played."
+      - name: points
+        description: "Points scored."
+      - name: assists
+        description: "Assists."
+      - name: rebounds_total
+        description: "Total rebounds."
+      - name: rebounds_offensive
+        description: "Offensive rebounds."
+      - name: rebounds_defensive
+        description: "Defensive rebounds."
+      - name: field_goals_made
+        description: "Field goals made."
+      - name: field_goals_attempted
+        description: "Field goals attempted."
+      - name: field_goals_percentage
+        description: "Field goal percentage."
+      - name: three_pointers_made
+        description: "Three-point field goals made."
+      - name: three_pointers_attempted
+        description: "Three-point field goals attempted."
+      - name: three_pointers_percentage
+        description: "Three-point field goal percentage."
+      - name: free_throws_made
+        description: "Free throws made."
+      - name: free_throws_attempted
+        description: "Free throws attempted."
+      - name: free_throws_percentage
+        description: "Free throw percentage."
+      - name: steals
+        description: "Steals."
+      - name: blocks
+        description: "Blocks."
+      - name: blocks_against
+        description: "Blocks against the player."
+      - name: turnovers
+        description: "Turnovers."
+      - name: fouls_personal
+        description: "Personal fouls."
+      - name: fouls_against
+        description: "Fouls drawn by or against the player as labeled by the source."
+      - name: plus_minus_points
+        description: "Plus-minus points."
+      - name: double_double
+        description: "Flag indicating a double-double."
+      - name: triple_double
+        description: "Flag indicating a triple-double."
+      - name: estimated_offensive_rating
+        description: "Estimated offensive rating."
+      - name: offensive_rating
+        description: "Offensive rating."
+      - name: sp_work_offensive_rating
+        description: "Source-specific offensive rating variant."
+      - name: estimated_defensive_rating
+        description: "Estimated defensive rating."
+      - name: defensive_rating
+        description: "Defensive rating."
+      - name: sp_work_defensive_rating
+        description: "Source-specific defensive rating variant."
+      - name: estimated_net_rating
+        description: "Estimated net rating."
+      - name: net_rating
+        description: "Net rating."
+      - name: sp_work_net_rating
+        description: "Source-specific net rating variant."
+      - name: assist_percentage
+        description: "Assist percentage."
+      - name: assist_to_turnover_ratio
+        description: "Assist-to-turnover ratio."
+      - name: assist_ratio
+        description: "Assist ratio."
+      - name: offensive_rebound_percentage
+        description: "Offensive rebound percentage."
+      - name: defensive_rebound_percentage
+        description: "Defensive rebound percentage."
+      - name: rebound_percentage
+        description: "Total rebound percentage."
+      - name: team_turnover_percentage
+        description: "Team turnover percentage."
+      - name: estimated_turnover_percentage
+        description: "Estimated turnover percentage."
+      - name: effective_field_goal_percentage
+        description: "Effective field goal percentage."
+      - name: true_shooting_percentage
+        description: "True shooting percentage."
+      - name: usage_percentage
+        description: "Usage percentage."
+      - name: estimated_usage_percentage
+        description: "Estimated usage percentage."
+      - name: estimated_pace
+        description: "Estimated pace."
+      - name: pace
+        description: "Pace."
+      - name: pace_per_40
+        description: "Pace per 40 minutes."
+      - name: sp_work_pace
+        description: "Source-specific pace variant."
+      - name: player_impact_estimate
+        description: "Player impact estimate."
+      - name: possessions
+        description: "Possessions."
+      - name: points_off_turnovers
+        description: "Points scored off turnovers."
+      - name: points_second_chance
+        description: "Second-chance points."
+      - name: points_fast_break
+        description: "Fast-break points."
+      - name: points_in_paint
+        description: "Points in the paint."
+      - name: opponent_points_off_turnovers
+        description: "Opponent points off turnovers."
+      - name: opponent_points_second_chance
+        description: "Opponent second-chance points."
+      - name: opponent_points_fast_break
+        description: "Opponent fast-break points."
+      - name: opponent_points_in_paint
+        description: "Opponent points in the paint."
+      - name: percent_field_goal_attempts_2_point
+        description: "Share of field goal attempts that were two-point attempts."
+      - name: percent_field_goal_attempts_3_point
+        description: "Share of field goal attempts that were three-point attempts."
+      - name: percent_points_2_point
+        description: "Share of points from two-point field goals."
+      - name: percent_points_2_point_mid_range
+        description: "Share of points from mid-range two-point field goals."
+      - name: percent_points_3_point
+        description: "Share of points from three-point field goals."
+      - name: percent_points_fast_break
+        description: "Share of points from fast breaks."
+      - name: percent_points_free_throw
+        description: "Share of points from free throws."
+      - name: percent_points_off_turnovers
+        description: "Share of points from turnovers."
+      - name: percent_points_in_paint
+        description: "Share of points from the paint."
+      - name: percent_assisted_2_point_made
+        description: "Share of made two-point field goals that were assisted."
+      - name: percent_unassisted_2_point_made
+        description: "Share of made two-point field goals that were unassisted."
+      - name: percent_assisted_3_point_made
+        description: "Share of made three-point field goals that were assisted."
+      - name: percent_unassisted_3_point_made
+        description: "Share of made three-point field goals that were unassisted."
+      - name: percent_assisted_field_goals_made
+        description: "Share of made field goals that were assisted."
+      - name: percent_unassisted_field_goals_made
+        description: "Share of made field goals that were unassisted."
+      - name: percent_team_field_goals_made
+        description: "Player share of team field goals made."
+      - name: percent_team_field_goals_attempted
+        description: "Player share of team field goals attempted."
+      - name: percent_team_three_pointers_made
+        description: "Player share of team three-pointers made."
+      - name: percent_team_three_pointers_attempted
+        description: "Player share of team three-pointers attempted."
+      - name: percent_team_free_throws_made
+        description: "Player share of team free throws made."
+      - name: percent_team_free_throws_attempted
+        description: "Player share of team free throws attempted."
+      - name: percent_team_offensive_rebounds
+        description: "Player share of team offensive rebounds."
+
+  - name: stg_nba_kaggle_team_statistics
+    description: "Cleaned team game box-score statistics from the Kaggle NBA source."
+    columns:
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: game_date_time_est
+        description: "Game date and time in Eastern time."
+      - name: team_city
+        description: "Team city."
+      - name: team_name
+        description: "Team nickname."
+      - name: team_id
+        description: "NBA team identifier."
+      - name: opponent_team_city
+        description: "Opponent team city."
+      - name: opponent_team_name
+        description: "Opponent team nickname."
+      - name: opponent_team_id
+        description: "NBA team identifier for the opponent."
+      - name: home
+        description: "Flag indicating whether the team was home."
+      - name: win
+        description: "Flag indicating whether the team won."
+      - name: team_score
+        description: "Team score."
+      - name: opponent_score
+        description: "Opponent score."
+      - name: assists
+        description: "Team assists."
+      - name: blocks
+        description: "Team blocks."
+      - name: steals
+        description: "Team steals."
+      - name: field_goals_attempted
+        description: "Team field goals attempted."
+      - name: field_goals_made
+        description: "Team field goals made."
+      - name: field_goals_percentage
+        description: "Team field goal percentage."
+      - name: three_pointers_attempted
+        description: "Team three-point field goals attempted."
+      - name: three_pointers_made
+        description: "Team three-point field goals made."
+      - name: three_pointers_percentage
+        description: "Team three-point field goal percentage."
+      - name: free_throws_attempted
+        description: "Team free throws attempted."
+      - name: free_throws_made
+        description: "Team free throws made."
+      - name: free_throws_percentage
+        description: "Team free throw percentage."
+      - name: rebounds_defensive
+        description: "Team defensive rebounds."
+      - name: rebounds_offensive
+        description: "Team offensive rebounds."
+      - name: rebounds_total
+        description: "Team total rebounds."
+      - name: fouls_personal
+        description: "Team personal fouls."
+      - name: turnovers
+        description: "Team turnovers."
+      - name: plus_minus_points
+        description: "Team plus-minus points."
+      - name: num_minutes
+        description: "Team minutes played."
+      - name: q1_points
+        description: "Team first-quarter points."
+      - name: q2_points
+        description: "Team second-quarter points."
+      - name: q3_points
+        description: "Team third-quarter points."
+      - name: q4_points
+        description: "Team fourth-quarter points."
+      - name: bench_points
+        description: "Team bench points."
+      - name: biggest_lead
+        description: "Team biggest lead."
+      - name: biggest_scoring_run
+        description: "Team biggest scoring run."
+      - name: lead_changes
+        description: "Game lead changes."
+      - name: points_fast_break
+        description: "Team fast-break points."
+      - name: points_from_turnovers
+        description: "Team points from turnovers."
+      - name: points_in_the_paint
+        description: "Team points in the paint."
+      - name: points_second_chance
+        description: "Team second-chance points."
+      - name: times_tied
+        description: "Number of times the game was tied."
+      - name: timeouts_remaining
+        description: "Team timeouts remaining."
+      - name: season_wins
+        description: "Team season wins at game time."
+      - name: season_losses
+        description: "Team season losses at game time."
+      - name: coach_id
+        description: "Coach identifier."
+      - name: game_type
+        description: "Game type from the source."
+      - name: game_label
+        description: "Game label from the source."
+      - name: game_sub_label
+        description: "Game sublabel from the source."
+      - name: series_game_number
+        description: "Playoff series game number, when applicable."
+      - name: seed
+        description: "Team playoff seed, when applicable."
+      - name: rebounds_team
+        description: "Team rebounds credited separately from player rebounds."
+      - name: turnovers_team
+        description: "Team turnovers credited separately from player turnovers."
+      - name: ot1_points
+        description: "Team first-overtime points."
+      - name: ot2_points
+        description: "Team second-overtime points."
+      - name: ot_all_points
+        description: "Team total overtime points."
+      - name: game_date
+        description: "Game date timestamp from the source."
+
+  - name: stg_nba_kaggle_team_statistics_extended
+    description: "Cleaned extended team game statistics, including traditional box-score, advanced, pace, possession, scoring-location, and assisted-shot metrics."
+    columns:
+      - name: game_id
+        description: "Unique identifier for the NBA game."
+      - name: game_date_time_est
+        description: "Game date and time in Eastern time."
+      - name: game_type
+        description: "Game type from the source."
+      - name: game_label
+        description: "Game label from the source."
+      - name: game_sub_label
+        description: "Game sublabel from the source."
+      - name: series_game_number
+        description: "Playoff series game number, when applicable."
+      - name: team_id
+        description: "NBA team identifier."
+      - name: team_city
+        description: "Team city."
+      - name: team_name
+        description: "Team nickname."
+      - name: opponent_team_id
+        description: "NBA team identifier for the opponent."
+      - name: opponent_team_city
+        description: "Opponent team city."
+      - name: opponent_team_name
+        description: "Opponent team nickname."
+      - name: home
+        description: "Flag indicating whether the team was home."
+      - name: win
+        description: "Flag indicating whether the team won."
+      - name: team_score
+        description: "Team score."
+      - name: opponent_score
+        description: "Opponent score."
+      - name: seed
+        description: "Team playoff seed, when applicable."
+      - name: num_minutes
+        description: "Team minutes played."
+      - name: assists
+        description: "Team assists."
+      - name: steals
+        description: "Team steals."
+      - name: blocks
+        description: "Team blocks."
+      - name: blocks_against
+        description: "Blocks recorded against the team."
+      - name: field_goals_made
+        description: "Team field goals made."
+      - name: field_goals_attempted
+        description: "Team field goals attempted."
+      - name: field_goals_percentage
+        description: "Team field goal percentage."
+      - name: three_pointers_made
+        description: "Team three-point field goals made."
+      - name: three_pointers_attempted
+        description: "Team three-point field goals attempted."
+      - name: three_pointers_percentage
+        description: "Team three-point field goal percentage."
+      - name: free_throws_made
+        description: "Team free throws made."
+      - name: free_throws_attempted
+        description: "Team free throws attempted."
+      - name: free_throws_percentage
+        description: "Team free throw percentage."
+      - name: rebounds_offensive
+        description: "Team offensive rebounds."
+      - name: rebounds_defensive
+        description: "Team defensive rebounds."
+      - name: rebounds_total
+        description: "Team total rebounds."
+      - name: rebounds_team
+        description: "Team rebounds credited separately from player rebounds."
+      - name: fouls_personal
+        description: "Team personal fouls."
+      - name: personal_fouls_drawn
+        description: "Personal fouls drawn by the team."
+      - name: turnovers
+        description: "Team turnovers."
+      - name: turnovers_team
+        description: "Team turnovers credited separately from player turnovers."
+      - name: plus_minus_points
+        description: "Team plus-minus points."
+      - name: q1_points
+        description: "Team first-quarter points."
+      - name: q2_points
+        description: "Team second-quarter points."
+      - name: q3_points
+        description: "Team third-quarter points."
+      - name: q4_points
+        description: "Team fourth-quarter points."
+      - name: ot1_points
+        description: "Team first-overtime points."
+      - name: ot2_points
+        description: "Team second-overtime points."
+      - name: ot_all_points
+        description: "Team total overtime points."
+      - name: bench_points
+        description: "Team bench points."
+      - name: biggest_lead
+        description: "Team biggest lead."
+      - name: biggest_scoring_run
+        description: "Team biggest scoring run."
+      - name: lead_changes
+        description: "Game lead changes."
+      - name: points_fast_break
+        description: "Team fast-break points."
+      - name: points_from_turnovers
+        description: "Team points from turnovers."
+      - name: points_in_the_paint
+        description: "Team points in the paint."
+      - name: points_second_chance
+        description: "Team second-chance points."
+      - name: times_tied
+        description: "Number of times the game was tied."
+      - name: timeouts_remaining
+        description: "Team timeouts remaining."
+      - name: season_wins
+        description: "Team season wins at game time."
+      - name: season_losses
+        description: "Team season losses at game time."
+      - name: estimated_offensive_rating
+        description: "Estimated offensive rating."
+      - name: offensive_rating
+        description: "Offensive rating."
+      - name: estimated_defensive_rating
+        description: "Estimated defensive rating."
+      - name: defensive_rating
+        description: "Defensive rating."
+      - name: estimated_net_rating
+        description: "Estimated net rating."
+      - name: net_rating
+        description: "Net rating."
+      - name: assist_percentage
+        description: "Assist percentage."
+      - name: assist_to_turnover_ratio
+        description: "Assist-to-turnover ratio."
+      - name: assist_ratio
+        description: "Assist ratio."
+      - name: offensive_rebound_percentage
+        description: "Offensive rebound percentage."
+      - name: defensive_rebound_percentage
+        description: "Defensive rebound percentage."
+      - name: rebound_percentage
+        description: "Total rebound percentage."
+      - name: team_turnover_percentage
+        description: "Team turnover percentage."
+      - name: effective_field_goal_percentage
+        description: "Effective field goal percentage."
+      - name: true_shooting_percentage
+        description: "True shooting percentage."
+      - name: estimated_pace
+        description: "Estimated pace."
+      - name: pace
+        description: "Pace."
+      - name: pace_per_40
+        description: "Pace per 40 minutes."
+      - name: possessions
+        description: "Possessions."
+      - name: player_impact_estimate
+        description: "Player impact estimate."
+      - name: points_off_turnovers
+        description: "Points scored off turnovers."
+      - name: opponent_points_off_turnovers
+        description: "Opponent points off turnovers."
+      - name: opponent_points_second_chance
+        description: "Opponent second-chance points."
+      - name: opponent_points_fast_break
+        description: "Opponent fast-break points."
+      - name: opponent_points_in_paint
+        description: "Opponent points in the paint."
+      - name: percent_field_goal_attempts_2_point
+        description: "Share of field goal attempts that were two-point attempts."
+      - name: percent_field_goal_attempts_3_point
+        description: "Share of field goal attempts that were three-point attempts."
+      - name: percent_points_2_point
+        description: "Share of points from two-point field goals."
+      - name: percent_points_2_point_mid_range
+        description: "Share of points from mid-range two-point field goals."
+      - name: percent_points_3_point
+        description: "Share of points from three-point field goals."
+      - name: percent_points_fast_break
+        description: "Share of points from fast breaks."
+      - name: percent_points_free_throw
+        description: "Share of points from free throws."
+      - name: percent_points_off_turnovers
+        description: "Share of points from turnovers."
+      - name: percent_points_in_paint
+        description: "Share of points from the paint."
+      - name: percent_assisted_2_point_made
+        description: "Share of made two-point field goals that were assisted."
+      - name: percent_unassisted_2_point_made
+        description: "Share of made two-point field goals that were unassisted."
+      - name: percent_assisted_3_point_made
+        description: "Share of made three-point field goals that were assisted."
+      - name: percent_unassisted_3_point_made
+        description: "Share of made three-point field goals that were unassisted."
+      - name: percent_assisted_field_goals_made
+        description: "Share of made field goals that were assisted."
+      - name: percent_unassisted_field_goals_made
+        description: "Share of made field goals that were unassisted."
+      - name: free_throw_attempt_rate
+        description: "Free throw attempt rate."

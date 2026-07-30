@@ -1,0 +1,25 @@
+version: 2
+models:
+  - name: nba_kaggle_team_histories
+    columns:
+      - name: team_id
+        description: NBA team identifier.
+        data_type: INT64
+      - name: team_city
+        description: Team city.
+        data_type: STRING
+      - name: team_name
+        description: Team nickname.
+        data_type: STRING
+      - name: team_abbrev
+        description: Team abbreviation.
+        data_type: STRING
+      - name: season_founded
+        description: First active season for the team identity.
+        data_type: INT64
+      - name: season_active_till
+        description: Last active season for the team identity.
+        data_type: INT64
+      - name: league
+        description: League for the team history record.
+        data_type: STRING

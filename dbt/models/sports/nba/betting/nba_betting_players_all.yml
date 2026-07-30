@@ -1,0 +1,70 @@
+version: 2
+models:
+  - name: nba_betting_players_all
+    columns:
+      - name: person_id
+        description: Unique NBA person identifier for the player.
+        data_type: INT64
+      - name: display_last_comma_first
+        description: Player display name formatted as last name, first name.
+        data_type: STRING
+      - name: display_first_last
+        description: Player display name formatted as first name last name.
+        data_type: STRING
+      - name: rosterstatus
+        description: Boolean flag indicating whether the player is on a roster.
+        data_type: BOOLEAN
+      - name: from_year
+        description: First NBA season year for the player.
+        data_type: INT64
+      - name: to_year
+        description: Most recent or final NBA season year for the player.
+        data_type: INT64
+      - name: playercode
+        description: Source player code.
+        data_type: STRING
+      - name: games_played_flag
+        description: Flag indicating whether the player has appeared in NBA games.
+        data_type: BOOLEAN
+      - name: position
+        description: Listed player position.
+        data_type: STRING
+      - name: draft_year
+        description: NBA draft year.
+        data_type: INT64
+      - name: draft_round
+        description: NBA draft round.
+        data_type: INT64
+      - name: draft_num
+        description: NBA draft pick number.
+        data_type: STRING
+      - name: birth_date
+        description: Player birth date as provided by the source.
+        data_type: STRING
+      - name: height_feet
+        description: Player height feet component.
+        data_type: INT64
+      - name: height_inches
+        description: Player height inches component.
+        data_type: INT64
+      - name: height
+        description: Player height value from the source.
+        data_type: FLOAT64
+      - name: weight
+        description: Player listed weight.
+        data_type: INT64
+      - name: season_exp
+        description: Player NBA season experience.
+        data_type: INT64
+      - name: jersey
+        description: Player jersey number.
+        data_type: STRING
+      - name: school
+        description: Player school or college.
+        data_type: STRING
+      - name: country
+        description: Player country.
+        data_type: STRING
+      - name: last_affiliation
+        description: Player last listed affiliation.
+        data_type: STRING

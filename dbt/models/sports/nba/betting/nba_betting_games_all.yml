@@ -1,0 +1,40 @@
+version: 2
+models:
+  - name: nba_betting_games_all
+    columns:
+      - name: game_id
+        description: Unique identifier for the NBA game.
+        data_type: INT64
+      - name: game_date
+        description: Date the game was played.
+        data_type: DATE
+      - name: matchup
+        description: Game matchup label from the source feed.
+        data_type: STRING
+      - name: home_team_id
+        description: NBA team identifier for the home team.
+        data_type: INT64
+      - name: away_team_id
+        description: NBA team identifier for the away team.
+        data_type: INT64
+      - name: season_year
+        description: NBA season year associated with the game.
+        data_type: INT64
+      - name: season_type
+        description: Season phase, such as regular season or playoffs.
+        data_type: STRING
+      - name: season
+        description: Source season label.
+        data_type: STRING
+      - name: home_pts
+        description: Points scored by the home team.
+        data_type: INT64
+      - name: away_pts
+        description: Points scored by the away team.
+        data_type: INT64
+      - name: home_wl
+        description: Win/loss result for the home team.
+        data_type: STRING
+      - name: away_wl
+        description: Win/loss result for the away team.
+        data_type: STRING

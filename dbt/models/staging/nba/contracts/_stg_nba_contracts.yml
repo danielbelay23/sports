@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_nba_contracts
+    description: Typed contract snapshot history prepared for downstream models.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - snapshot_date
+              - source_rank
+              - season_label
+    columns:
+      - name: team_code
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - ATL
+                  - BOS
+                  - BRK
+                  - CHI
+                  - CHO
+                  - CLE
+                  - DAL
+                  - DEN
+                  - DET
+                  - GSW
+                  - HOU
+                  - IND
+                  - LAC
+                  - LAL
+                  - MEM
+                  - MIA
+                  - MIL
+                  - MIN
+                  - NOP
+                  - NYK
+                  - OKC
+                  - ORL
+                  - PHI
+                  - PHO
+                  - POR
+                  - SAC
+                  - SAS
+                  - TOR
+                  - UTA
+                  - WAS

@@ -1,0 +1,54 @@
+version: 2
+models:
+  - name: elo_games_all_time
+    columns:
+      - name: game_id
+        description: Unique Elo game identifier.
+        data_type: STRING
+      - name: is_copy
+        data_type: INT64
+      - name: year_id
+        data_type: INT64
+      - name: date_game
+        description: Date the playoff game was played.
+        data_type: DATE
+      - name: is_playoffs
+        data_type: INT64
+      - name: team_id
+        description: Elo franchise identifier for the home/listed team.
+        data_type: STRING
+      - name: opp_id
+        description: Elo franchise identifier for the opposing team.
+        data_type: STRING
+      - name: fran_id
+        data_type: STRING
+      - name: opp_fran
+        data_type: STRING
+      - name: pts
+        data_type: INT64
+      - name: opp_pts
+        data_type: INT64
+      - name: elo_i
+        data_type: FLOAT64
+      - name: elo_n
+        data_type: FLOAT64
+      - name: opp_elo_i
+        data_type: FLOAT64
+      - name: opp_elo_n
+        data_type: FLOAT64
+      - name: win_equiv
+        data_type: FLOAT64
+      - name: game_location
+        data_type: STRING
+      - name: game_result
+        data_type: STRING
+      - name: forecast
+        data_type: FLOAT64
+      - name: notes
+        data_type: STRING
+      - name: kaggle_team_id
+        data_type: INT64
+      - name: kaggle_opp_team_id
+        data_type: INT64
+      - name: kaggle_home_team_id
+        data_type: INT64

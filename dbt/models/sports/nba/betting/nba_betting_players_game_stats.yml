@@ -1,0 +1,103 @@
+version: 2
+models:
+  - name: nba_betting_players_game_stats
+    columns:
+      - name: season_id
+        description: Source season identifier.
+        data_type: INT64
+      - name: player_id
+        description: Unique NBA player identifier.
+        data_type: INT64
+      - name: player_name
+        description: Player name.
+        data_type: STRING
+      - name: team_id
+        description: NBA team identifier.
+        data_type: INT64
+      - name: team_abbreviation
+        description: NBA team abbreviation.
+        data_type: STRING
+      - name: team_name
+        description: NBA team name.
+        data_type: STRING
+      - name: game_id
+        description: Unique identifier for the NBA game.
+        data_type: INT64
+      - name: game_date
+        description: Date the game was played.
+        data_type: DATE
+      - name: matchup
+        description: Game matchup label.
+        data_type: STRING
+      - name: wl
+        description: Player team win/loss result.
+        data_type: STRING
+      - name: min
+        description: Minutes played.
+        data_type: INT64
+      - name: fgm
+        description: Field goals made.
+        data_type: INT64
+      - name: fga
+        description: Field goals attempted.
+        data_type: INT64
+      - name: fg_pct
+        description: Field goal percentage.
+        data_type: FLOAT64
+      - name: fg3m
+        description: Three-point field goals made.
+        data_type: STRING
+      - name: fg3a
+        description: Three-point field goals attempted.
+        data_type: STRING
+      - name: fg3_pct
+        description: Three-point field goal percentage.
+        data_type: STRING
+      - name: ftm
+        description: Free throws made.
+        data_type: INT64
+      - name: fta
+        description: Free throws attempted.
+        data_type: INT64
+      - name: ft_pct
+        description: Free throw percentage.
+        data_type: FLOAT64
+      - name: oreb
+        description: Offensive rebounds.
+        data_type: STRING
+      - name: dreb
+        description: Defensive rebounds.
+        data_type: STRING
+      - name: reb
+        description: Total rebounds.
+        data_type: INT64
+      - name: ast
+        description: Assists.
+        data_type: INT64
+      - name: stl
+        description: Steals.
+        data_type: STRING
+      - name: blk
+        description: Blocks.
+        data_type: STRING
+      - name: tov
+        description: Turnovers.
+        data_type: STRING
+      - name: pf
+        description: Personal fouls.
+        data_type: INT64
+      - name: pts
+        description: Points scored.
+        data_type: INT64
+      - name: plus_minus
+        description: Plus-minus while the player was on the court.
+        data_type: STRING
+      - name: season_type
+        description: Season phase, such as regular season or playoffs.
+        data_type: STRING
+      - name: season_year
+        description: NBA season year.
+        data_type: INT64
+      - name: season
+        description: Source season label.
+        data_type: STRING

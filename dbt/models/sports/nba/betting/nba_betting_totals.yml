@@ -1,0 +1,31 @@
+version: 2
+models:
+  - name: nba_betting_totals
+    columns:
+      - name: game_id
+        description: Unique identifier for the NBA game.
+        data_type: INT64
+      - name: book_name
+        description: Sportsbook name providing the odds.
+        data_type: STRING
+      - name: book_id
+        description: Sportsbook identifier.
+        data_type: INT64
+      - name: team_id
+        description: NBA team identifier for the listed team.
+        data_type: INT64
+      - name: a_team_id
+        description: NBA team identifier for the opposing team.
+        data_type: INT64
+      - name: total1
+        description: Game total value for the listed team side.
+        data_type: FLOAT64
+      - name: total2
+        description: Game total value for the opposing team side.
+        data_type: FLOAT64
+      - name: price1
+        description: Odds price for the listed team total.
+        data_type: FLOAT64
+      - name: price2
+        description: Odds price for the opposing team total.
+        data_type: FLOAT64

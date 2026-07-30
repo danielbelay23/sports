@@ -1,0 +1,156 @@
+version: 2
+
+models:
+  - name: stg_nba_elo_all_games
+    description: "Cleaned FiveThirtyEight-style NBA Elo game history with pregame probabilities, Elo ratings, scores, and rating deltas."
+    columns:
+      - name: game_id
+        description: "Unique Elo game identifier."
+      - name: date_game
+        description: "Date the game was played."
+      - name: season
+        description: "NBA season year."
+      - name: is_playoff
+        description: "Flag indicating whether the game was a playoff game."
+      - name: neutral
+        description: "Flag indicating whether the game was played at a neutral site."
+      - name: team_id
+        description: "Elo franchise identifier for the home/listed team."
+      - name: opp_id
+        description: "Elo franchise identifier for the opposing team."
+      - name: home_pts
+        description: "Points scored by the home team."
+      - name: away_pts
+        description: "Points scored by the away team."
+      - name: mov
+        description: "Margin of victory from the home-team perspective."
+      - name: home_win
+        description: "Flag indicating whether the home team won."
+      - name: elo_home_reg_pre
+        description: "Home-team regular-season Elo rating before the game."
+      - name: elo_away_reg_pre
+        description: "Away-team regular-season Elo rating before the game."
+      - name: elo_home_po_pre
+        description: "Home-team playoff Elo rating before the game."
+      - name: elo_away_po_pre
+        description: "Away-team playoff Elo rating before the game."
+      - name: p_home_reg
+        description: "Pregame home win probability from the regular-season Elo model."
+      - name: p_home_po
+        description: "Pregame home win probability from the playoff Elo model."
+      - name: p_home_used
+        description: "Pregame home win probability used for the game."
+      - name: delta_reg
+        description: "Regular-season Elo rating delta from the game."
+      - name: delta_po
+        description: "Playoff Elo rating delta from the game."
+      - name: elo_home_reg_post
+        description: "Home-team regular-season Elo rating after the game."
+      - name: elo_away_reg_post
+        description: "Away-team regular-season Elo rating after the game."
+      - name: elo_home_po_post
+        description: "Home-team playoff Elo rating after the game."
+      - name: elo_away_po_post
+        description: "Away-team playoff Elo rating after the game."
+
+  - name: stg_nba_elo_playoff_games
+    description: "Subset of cleaned Elo game history limited to NBA playoff games."
+    columns:
+      - name: game_id
+        description: "Unique Elo game identifier."
+      - name: date_game
+        description: "Date the playoff game was played."
+      - name: season
+        description: "NBA season year."
+      - name: is_playoff
+        description: "Flag indicating whether the game was a playoff game."
+      - name: neutral
+        description: "Flag indicating whether the game was played at a neutral site."
+      - name: team_id
+        description: "Elo franchise identifier for the home/listed team."
+      - name: opp_id
+        description: "Elo franchise identifier for the opposing team."
+      - name: home_pts
+        description: "Points scored by the home team."
+      - name: away_pts
+        description: "Points scored by the away team."
+      - name: mov
+        description: "Margin of victory from the home-team perspective."
+      - name: home_win
+        description: "Flag indicating whether the home team won."
+      - name: elo_home_reg_pre
+        description: "Home-team regular-season Elo rating before the game."
+      - name: elo_away_reg_pre
+        description: "Away-team regular-season Elo rating before the game."
+      - name: elo_home_po_pre
+        description: "Home-team playoff Elo rating before the game."
+      - name: elo_away_po_pre
+        description: "Away-team playoff Elo rating before the game."
+      - name: p_home_reg
+        description: "Pregame home win probability from the regular-season Elo model."
+      - name: p_home_po
+        description: "Pregame home win probability from the playoff Elo model."
+      - name: p_home_used
+        description: "Pregame home win probability used for the game."
+      - name: delta_reg
+        description: "Regular-season Elo rating delta from the game."
+      - name: delta_po
+        description: "Playoff Elo rating delta from the game."
+      - name: elo_home_reg_post
+        description: "Home-team regular-season Elo rating after the game."
+      - name: elo_away_reg_post
+        description: "Away-team regular-season Elo rating after the game."
+      - name: elo_home_po_post
+        description: "Home-team playoff Elo rating after the game."
+      - name: elo_away_po_post
+        description: "Away-team playoff Elo rating after the game."
+
+  - name: stg_nba_elo_team_seasons
+    description: "Cleaned team-season Elo records joined to NBA team identifiers from Kaggle team history."
+    columns:
+      - name: team_id
+        description: "NBA team identifier matched from team history."
+      - name: team_abbrev
+        description: "Team abbreviation from the Elo source."
+      - name: full_team_name
+        description: "Full team name from the Elo source."
+      - name: team_city
+        description: "Parsed team city."
+      - name: team_name
+        description: "Parsed team nickname."
+      - name: franch
+        description: "Elo franchise identifier."
+      - name: year
+        description: "Season year."
+      - name: games
+        description: "Games played in the season."
+      - name: wins
+        description: "Regular-season wins."
+      - name: losses
+        description: "Regular-season losses."
+      - name: points_for
+        description: "Total points scored by the team."
+      - name: points_against
+        description: "Total points allowed by the team."
+      - name: points_per_game_diff
+        description: "Average point differential per game."
+      - name: offense_rating
+        description: "Elo source offensive rating."
+      - name: defense_rating
+        description: "Elo source defensive rating."
+      - name: elo_preseason
+        description: "Preseason Elo rating."
+      - name: elo_midseason
+        description: "Midseason Elo rating."
+      - name: elo_end_of_regular_season
+        description: "Elo rating at the end of the regular season."
+      - name: playoffs_won
+        description: "Playoff games or series won as provided by the source."
+      - name: playoffs_lost
+        description: "Playoff games or series lost as provided by the source."
+      - name: playoff_outcome
+        description: "Team playoff outcome label."
+      - name: playoff_elo
+        description: "Playoff Elo rating."
+      - name: coaches
+        description: "Coaches listed for the team season."
